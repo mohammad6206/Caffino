@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% load jalali_tags %}
+
+
+{% block content %}
+<div class="payment-failed-container">
+    <div class="error-header">
+        <i class="fas fa-times-circle error-icon"></i>
+        <h2>پرداخت ناموفق بود</h2>
+    </div>
+    
+    <div class="error-details">
+        <p class="error-message">{{ error_message }}</p>
+        
+        {% if order_code %}
+        <div class="order-info">
+            <p>شماره سفارش: <strong>{{ order_code }}</strong></p>
+        </div>
+        {% endif %}
+    </div>
+    
+    <div class="action-buttons">
+        <a href="{% url 'Caffino:process_payment' %}" class="btn btn-retry">
+            <i class="fas fa-redo-alt"></i> تلاش مجدد
+        </a>
+        <a href="{% url 'Caffino:cart_view' %}" class="btn btn-cart">
+            <i class="fas fa-shopping-cart"></i> بازگشت به سبد خرید
+        </a>
+        <a href="{% url 'Caffino:contact_us' %}" class="btn btn-support">
+            <i class="fas fa-headset"></i> پشتیبانی
+        </a>
+    </div>
+</div>
+{% endblock %}

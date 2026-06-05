@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% load jalali_tags %}
+
+{% block title %}فراموشی رمز عبور{% endblock %}
+
+{% block content %}
+<section class="auth-section">
+    <div class="auth-box">
+        <h2>بازیابی رمز با SMS</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.phone.label_tag }}
+            {{ form.phone }}
+            {% if form.phone.errors %}
+            <small style="color:red">{{ form.phone.errors.0 }}</small>
+            {% endif %}
+            <button type="submit" class="btn-auth-submit">ارسال کد تایید</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

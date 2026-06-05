@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+{% load jalali_tags %}
+
+{% block content %}
+<div class="dashboard" dir="rtl">
+    <div class="container py-5">
+        <h2 class="mb-4 text-center">تاریخچه سفارشات شما</h2>
+        {% if orders %}
+        <div class="order-list">
+            {% for order in orders %}
+            <div class="card mb-3">
+                <div class="card-body text-right">
+                    <h5 class="card-title">سفارش: {{ order.order_code }}</h5>
+                    <p class="card-text">تاریخ ثبت: {{ order.created_at|to_jalali:"%Y/%m/%d %H:%M" }}</p>
+                    <p class="card-text">وضعیت: <span class="order-status {{ order.status }}">
+                            {{ order.get_status_display }}
+                        </span></p>
+                    <div class="text-center">
+                        <a href="{% url 'Caffino:order_detail' order.order_code %}" class="btn btn-sm btn-primary">
+                            مشاهده جزئیات سفارش
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="alert alert-info text-right">هیچ سفارشی ثبت نکرده‌اید.</p>
+        {% endif %}
+        <div class="mt-4 text-left">
+            <a href="{% url 'Caffino:dashboard' %}" class="btn btn-secondary">
+                بازگشت به داشبورد
+            </a>
+        </div>
+    </div>
+</div>
+<style>
+    .dashboard {
+        direction: rtl;
+    }
+
+    .card {
+        text-align: right;
+    }
+
+    .card-title {
+        margin-bottom: 0.75rem;
+    }
+
+    .card-text {
+        margin-bottom: 0.5rem;
+    }
+
+    .order-status {
+        font-weight: bold;
+        padding: 0.3em 0.7em;
+        /* Slightly more padding */
+        border-radius: 7px;
+        /* More rounded corners */
+        color: #f8f9fa;
+        /* Light text for better contrast on darker backgrounds */
+    }
+
+    .order-status.pending {
+        background-color: #ffb347;
+        /* A warmer, more vibrant orange */
+    }
+
+    .order-status.paid {
+        background-color: #4caf50;
+        /* A brighter, more inviting green */
+    }
+
+    .order-status.shipped {
+        background-color: #2979ff;
+        /* A more energetic blue */
+    }
+
+    .order-status.delivered {
+        background-color: #00bcd4;
+        /* A pleasant teal color */
+    }
+
+    .order-status.canceled {
+        background-color: #f44336;
+        /* A more noticeable red */
+    }
+
+    .card-body .text-center {
+        margin-top: 1rem;
+    }
+
+    .alert.alert-info {
+        text-align: right;
+        background-color: #e3f2fd;
+        /* Light blue background for info */
+        color: #1976d2;
+        /* Darker blue text for info */
+        border-radius: 5px;
+        padding: 0.8em;
+    }
+
+    .mt-4.text-left {
+        text-align: left !important;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+</style>
+{% endblock %}

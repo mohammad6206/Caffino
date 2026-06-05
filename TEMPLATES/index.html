@@ -1,0 +1,251 @@
+{%extends "base.html"%}
+{%load static%}
+{% load jalali_tags %}
+
+{% block content %}
+
+
+{% if messages %}
+<div class="alert-messages">
+   {% for message in messages %}
+   <div class="alert alert-{{ message.tags }}">
+      {{ message }}
+   </div>
+   {% endfor %}
+</div>
+{% endif %}
+
+<!-- banner section start -->
+<div class="banner_section layout_padding">
+   <div class="container">
+      <div id="main_banner_slider" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+         <div class="carousel-inner">
+            {% for image in banner_images %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+               <img src="{{ image.image.url }}" class="d-block w-100" alt="{{ image.alt_text|default:'تصویر بنر' }}">
+            </div>
+            {% endfor %}
+         </div>
+
+         <!-- نشانگرهای دایره‌ای (مشابه testimonialsCarousel) -->
+         <ol class="carousel-indicators">
+            {% for image in banner_images %}
+            <li data-bs-target="#main_banner_slider" data-bs-slide-to="{{ forloop.counter0 }}"
+               class="{% if forloop.first %}active{% endif %}"></li>
+            {% endfor %}
+         </ol>
+      </div>
+   </div>
+</div>
+<!-- banner section end -->
+<!-- about section start -->
+<div class="about_section layout_padding">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-6">
+            <div class="about_taital_main">
+               <div class="about_taital">درباره کافینو</div>
+               <p class="about_text">کافیینو یک فروشگاه آنلاین تخصصی قهوه است که با عشق به دانه‌های معطر قهوه و هنر
+                  دم‌آوری متولد شد. ما در کافیینو با انتخاب بهترین دانه‌های قهوه از مرغوب‌ترین مزارع جهان، تجربه‌ای
+                  منحصربه‌فرد از طعم‌های اصیل قهوه را به شما هدیه می‌دهیم.</p>
+               <div class="read_bt"><a href="{%url 'Caffino:about'%}">! کافینو رو بیشتر بشناس</a>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="about_img"><img src="{%static 'images/about-img.png'%}"></div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- about section end -->
+<!-- gallery section start -->
+<div class="gallery_section layout_padding">
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-12">
+            <h1 class="gallery_taital">جدیدترین محصولات کافینو</h1>
+         </div>
+      </div>
+      <div class="gallery_section_2">
+         <div class="row">
+            {% for product in latest_products %}
+            <div class="col-md-4">
+               <div class="container_main product-card">
+                  <img src="{{ product.image.url }}" alt="{{ product.name }}" class="image">
+                  <div class="overlay">
+                     <div class="text">
+                        <a href="{% url 'Caffino:product_detail' product.id %}">
+                           جزئیات محصول
+                        </a>
+                     </div>
+                  </div>
+                  <div class="product-info">
+                     <h3>{{ product.name }}</h3>
+                     {% if product.weight %}
+                     <p class="weight">وزن: {{ product.weight }} گرم</p>
+                     {% endif %}
+                     <p class="price price">قیمت: {{ product.price }} تومان</p>
+                  </div>
+               </div>
+            </div>
+            {% endfor %}
+         </div>
+      </div>
+      <div class="seemore_bt"><a href="{% url 'Caffino:products' %}">مشاهده همه محصولات</a></div>
+   </div>
+</div>
+<!-- gallery section end -->
+<!-- services section start -->
+<div class="services_section layout_padding">
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-12">
+            <h1 class="services_taital">خدمات</h1>
+         </div>
+         <div class="services_section_2">
+            <div class="row">
+               <div class="col-lg-4 col-sm-12 col-md-4">
+                  <div class="box_main active">
+                     <div class="house_icon">
+                        <img src="{%static 'images/exprees.png'%}">
+                     </div>
+                     <h3 class="decorate_text">تحویل اکسپرس سفارشات</h3>
+                     <p class="tation_text">ارسال و تحویل اکسپرس سفارشات به لامرد و حومه در کمتر از 30 دقیقه و ارسال به
+                        سراسر کشور
+                        طی 2 تا 7 روز کاری با پست و تیپاکس</p>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-sm-12 col-md-4">
+                  <div class="box_main">
+                     <div class="house_icon">
+                        <img src="{%static 'images/numberone.png'%}">
+                     </div>
+                     <h3 class="decorate_text">بسته بندی ویژه</h3>
+                     <p class="tation_text">ما قهوه رو نه فقط به عنوان یک نوشیدنی، بلکه به عنوان یک تجربه لوکس ارائه
+                        می‌کنیم. بسته‌بندی‌های ویژه و مقاوم باعث حفظ عطر و تازگی قهوه شما می‌شود</p>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-sm-12 col-md-4">
+                  <div class="box_main">
+                     <div class="house_icon">
+                        <img src="{%static 'images/support.png'%}">
+                     </div>
+                     <h3 class="decorate_text">پشتیبانی 24 ساعته</h3>
+                     <p class="tation_text">پاسخگویی سریع،مشاوره تخصصی قهوه و حل مشکلات سفارش</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- services section end -->
+<!-- testimonial section start -->
+<div class="testimonials_section layout_padding">
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-12">
+            <h1 class="testimonials_taital">نظرات مشتریان</h1>
+         </div>
+      </div>
+
+      <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+         <!-- نشانگرها -->
+         <ol class="carousel-indicators">
+            {% for testimonial in testimonials %}
+            <li data-bs-target="#testimonialsCarousel" data-bs-slide-to="{{ forloop.counter0 }}"
+               class="{% if forloop.first %}active{% endif %}"></li>
+            {% endfor %}
+         </ol>
+
+         <!-- محتوای اسلایدها -->
+         <div class="carousel-inner">
+            {% if testimonials %}
+            {% for testimonial in testimonials %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %} ">
+               <div class="testimonial_item">
+                  <div class="testimonial_content">
+                     <div class="author_date_wrapper">
+                        <h5 class="author_name">{{ testimonial.name }}</h5>
+                        <small class="testimonial_date">
+                           <i class="far fa-calendar-alt"></i>
+                           {{ testimonial.created_at|to_jalali:"%H:%M - %Y/%m/%d" }}
+                        </small>
+                     </div>
+                     <p class="testimonial_text">{{ testimonial.message }}</p>
+                     <div class="rating">
+                        {% if testimonial.rating %}
+                        {% for i in "12345" %}
+                        {% if forloop.counter <= testimonial.rating %} <i class="fas fa-star"></i>
+                           {% else %}
+                           <i class="far fa-star"></i>
+                           {% endif %}
+                           {% endfor %}
+                           {% endif %}
+                     </div>
+                  </div>
+               </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="carousel-item active">
+               <div class="testimonial_item">
+                  <div class="testimonial_content">
+                     <p class="testimonial_text">هنوز نظری ثبت نشده است.</p>
+                  </div>
+               </div>
+            </div>
+            {% endif %}
+         </div>
+      </div>
+   </div>
+</div>
+<!-- testimonial section end -->
+
+<!-- contact section start -->
+<div class="contact_section layout_padding">
+   <div class="container">
+      <h1 class="contact_text">نظرات و پیشنهادات</h1>
+   </div>
+</div>
+
+<div class="contact_section_2 layout_padding">
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-md-6 padding_0">
+            <div class="mail_section">
+               <form method="POST" action="{% url 'Caffino:submit_contact' %}">
+                  {% csrf_token %}
+                  <div class="email_text" dir="rtl">
+                     <div class="form-group">
+                        <input type="text" class="email-bt" placeholder="نام" name="name" required>
+                     </div>
+                     <div class="form-group">
+                        <input type="email" class="email-bt" placeholder="ایمیل" name="email" required>
+                     </div>
+                     <div class="form-group">
+                        <input type="text" class="email-bt" placeholder="موضوع" name="subject" required>
+                     </div>
+                     <div class="form-group">
+                        <textarea class="massage-bt" placeholder="متن پیام" rows="5" name="message" required></textarea>
+                     </div>
+                     <div class="send_btn">
+                        <button type="submit" class="main_bt">ارسال</button>
+                     </div>
+                  </div>
+               </form>
+            </div>
+         </div>
+         <div class="col-md-6 padding_0">
+            <div class="map-responsive">
+               <iframe width="100%" height="535" frameborder="0" scrolling="no"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=53.1586%2C27.3144%2C53.1986%2C27.3544&layer=mapnik&marker=27.3344%2C53.1786#map=100.0"></iframe>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- contact section end -->
+
+{% endblock %}

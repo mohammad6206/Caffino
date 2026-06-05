@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% load jalali_tags %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
+<div class="dashboard">
+    <div dir="rtl" class="container">
+        <div class="card">
+            <h2>کوپن‌های فعال شما</h2>
+            {% if coupons %}
+            <ul class="coupon-list">
+                {% for coupon in coupons %}
+                <li>
+                    <span class="coupon-code">کد: {{ coupon.code }}</span>
+                    <span class="coupon-discount">تخفیف: {{ coupon.discount_percent }}%</span>
+                    <span class="coupon-validity">
+                        اعتبار تا: {{ coupon.valid_to|to_jalali:"%Y/%m/%d - %H:%M" }}
+                    </span>
+                </li>                
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>هیچ کوپن فعالی در حال حاضر ندارید.</p>
+            {% endif %}
+            <a href="{% url 'Caffino:dashboard' %}" class="back-btn">بازگشت به داشبورد</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

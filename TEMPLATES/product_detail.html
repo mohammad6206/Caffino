@@ -1,0 +1,481 @@
+{% extends "base.html" %}
+{% load custom_filters %}
+{% load static %}
+{% load jalali_tags %}
+
+{% block title %}{{ product.name }} - جزئیات محصول{% endblock %}
+
+{% block content %}
+<div class="product-detail-container">
+
+    <!-- گالری تصاویر -->
+    <div class="product-image-gallery">
+        <div class="main-image">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        </div>
+        {% if product.other_images %}
+        <div class="thumbnail-gallery">
+            {% for other_image in product.other_images.all %}
+            <img src="{{ other_image.url }}" alt="{{ product.name }} - تصویر دیگر">
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- اطلاعات محصول -->
+    <div class="product-info-wrapper">
+        <h1 class="product-title">{{ product.name }}</h1>
+        <!-- امتیاز -->
+        <div class="product-rating">
+            {% if total_ratings > 0 %}
+            <div class="star-rating">
+                {% with product.average_rating|detailed_rating as stars %}
+                {% for star in stars %}
+                {% if star == 'full' %}
+                <span class="fas fa-star filled"></span>
+                {% else %}
+                <span class="far fa-star"></span>
+                {% endif %}
+                {% endfor %}
+                {% endwith %}
+                <span class="rating-count">({{ total_ratings }} نظر)</span>
+            </div>
+            {% else %}
+            <p class="no-rating">هنوز امتیازی ثبت نشده است.</p>
+            {% endif %}
+        </div>
+
+
+        <!-- جزئیات -->
+        <div class="product-details">
+            {% if product.weight %}
+            <p class="product-weight">وزن: {{ product.weight }} گرم</p>
+            {% endif %}
+            <p class="product-description">{{ product.description }}</p>
+            <p class="product-price price">قیمت: {{ product.price }} تومان</p>
+        </div>
+
+        <!-- افزودن به سبد خرید -->
+        <div class="product-actions">
+            <form method="post" action="{% url 'Caffino:add_to_cart' product.id %}">
+                {% csrf_token %}
+                <div class="quantity-selector">
+                    <input type="number" id="quantity" name="quantity" value="1" min="1">
+                    <label for="quantity">: تعداد</label>
+
+                    <button type="submit" class="add-to-cart-button">
+                        <i class="fas fa-shopping-cart"></i> افزودن به سبد خرید
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- علاقه‌مندی -->
+        <div class="product-meta">
+            <form
+                action="{% if is_favorite %}{% url 'Caffino:remove_from_favorites' product.id %}{% else %}{% url 'Caffino:add_to_favorites' product.id %}{% endif %}"
+                method="post">
+                {% csrf_token %}
+                <button type="submit" class="add-to-wishlist {% if is_favorite %}active{% endif %}">
+                    <i class="fas {% if is_favorite %}fa-heart{% else %}fa-heart-o{% endif %}"></i>
+                    {% if is_favorite %}حذف از علاقه‌مندی‌ها{% else %}افزودن به علاقه‌مندی‌ها{% endif %}
+                </button>
+            </form>
+            <p>شناسه محصول: {{ product.id }}</p>
+            <p>دسته‌بندی: <a href="{{ product.category.get_absolute_url }}">{{ product.category.name }}</a></p>
+        </div>
+    </div>
+</div>
+<!-- تب‌ها -->
+<div class="product-details-tabs" dir="rtl">
+    <div class="tab-buttons">
+        <button class="tab-button active" data-tab="reviews">نظرات کاربران ({{ total_ratings }})</button>
+        <button class="tab-button" data-tab="qa">پرسش و پاسخ</button>
+    </div>
+
+    <div class="tab-contents">
+        <!-- تب نظرات -->
+        <div id="reviews" class="tab-content active">
+            <h3 style="text-align: center;">نظرات کاربران</h3>
+
+            {% if ratings %}
+            <ul class="review-list" style="direction: rtl; text-align: right;">
+                {% for rating in ratings %}
+                <li class="review-item" style="text-align: right;">
+                    <div class="reviewer-info" style="text-align: right;">
+                        <strong>{{ rating.user.full_name }}</strong>
+                        <div class="star-rating small">
+                            {% for i in "12345" %}
+                            {% if forloop.counter <= rating.rating %} <span class="fa fa-star filled"></span>
+                                {% else %}
+                                <span class="fa fa-star"></span>
+                                {% endif %}
+                                {% endfor %}
+                        </div>
+                        <span class="review-date">{{ rating.created_at|to_jalali:" %H:%M - %Y-%m-%d" }}</span>
+                    </div>
+                    <p class="review-comment" style="text-align: right;">{{ rating.comment }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p style="text-align: right;">هنوز نظری ثبت نشده است. اولین نفری باشید که نظر می‌دهد.</p>
+            {% endif %}
+
+            <!-- فرم ثبت نظر -->
+            <div class="rating-form">
+                <h4>نظر خود را بنویسید</h4>
+                <form method="post" action="{% url 'Caffino:submit_rating' product.id %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="rating">امتیاز:</label>
+                        <select name="rating" id="rating" required>
+                            <option value="">-- انتخاب کنید --</option>
+                            <option value="5">⭐⭐⭐⭐⭐</option>
+                            <option value="4">⭐⭐⭐⭐</option>
+                            <option value="3">⭐⭐⭐</option>
+                            <option value="2">⭐⭐</option>
+                            <option value="1">⭐</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">نظر شما:</label>
+                        <textarea name="comment" id="comment" rows="5" required
+                            placeholder="نظر خود را در مورد این محصول بنویسید..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-review-button">ثبت نظر</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- تب پرسش و پاسخ -->
+        <div id="qa" class="tab-content">
+            <h3>پرسش و پاسخ</h3>
+            <p>بخش پرسش و پاسخ به زودی فعال خواهد شد.</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .product-rating {
+        direction: rtl;
+        text-align: right;
+        margin: 10px 0;
+    }
+
+    .star-rating {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+    }
+
+    .star-rating .fas.filled {
+        color: #FFD700;
+        /* رنگ طلایی برای ستاره پر */
+    }
+
+    .star-rating .far {
+        color: #DDD;
+        /* رنگ خاکستری برای ستاره خالی */
+    }
+
+    .rating-count {
+        font-size: 14px;
+        color: white;
+        margin-right: 8px;
+    }
+
+    .no-rating {
+        color: #888;
+        font-style: italic;
+    }
+
+    .product-details-tabs {
+        margin-top: 30px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .tab-buttons {
+        display: flex;
+        border-bottom: 1px solid #e0e0e0;
+        background: #f8f8f8;
+        justify-content: center;
+        /* این خط را اضافه کنید */
+    }
+
+    .tab-button {
+        padding: 12px 20px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        color: #666;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .tab-button:hover {
+        color: #4CAF50;
+    }
+
+    .tab-button.active {
+        color: #4CAF50;
+        background: white;
+    }
+
+    .tab-button.active:after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #4CAF50;
+    }
+
+    .tab-content {
+        padding: 20px;
+        display: none;
+    }
+
+    .tab-content.active {
+        display: block;
+    }
+
+    /* استایل بخش نظرات */
+    .review-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .review-item {
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .reviewer-info {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 8px;
+    }
+
+    .star-rating {
+        display: inline-flex;
+        gap: 3px;
+    }
+
+    .star-rating .fa-star {
+        color: #ddd;
+    }
+
+    .star-rating .fa-star.filled {
+        color: #FFD700;
+
+    }
+
+    .review-date {
+        color: #888;
+        font-size: 14px;
+    }
+
+    /* استایل فرم نظر */
+    .rating-form {
+        margin-top: 30px;
+        padding: 20px;
+        background: #f9f9f9;
+        border-radius: 8px;
+    }
+
+    .rating-form h4 {
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    .form-group textarea {
+        min-height: 120px;
+    }
+
+    .submit-review-button {
+        background: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const tabButtons = document.querySelectorAll('.tab-button');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                // حذف کلاس active از همه دکمه‌ها
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+
+                // اضافه کردن به دکمه فعلی
+                this.classList.add('active');
+
+                // مخفی کردن همه تب‌ها
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // نمایش تب مربوطه
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    });
+</script>
+<!-- محصولات مرتبط -->
+<div class="related-products-section">
+    <h3 class="section-title">محصولات مرتبط</h3>
+    <div class="related-products-wrapper">
+        <button class="slider-nav prev-nav"><i class="fas fa-chevron-right"></i></button>
+        <button class="slider-nav next-nav"><i class="fas fa-chevron-left"></i></button>
+
+        <div class="related-products-carousel owl-carousel">
+            {% for related_product in related_products %}
+            <div class="item">
+                <div class="product-card">
+                    <img src="{{ related_product.image.url }}" alt="{{ related_product.name }}" class="product-img">
+                    <div class="overlay">
+                        <div class="text">
+                            <a href="{% url 'Caffino:product_detail' related_product.id %}">
+                                جزئیات محصول
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>{{ related_product.name }}</h3>
+                        {% if related_product.weight %}
+                        <p class="weight">وزن: {{ related_product.weight }} گرم</p>
+                        {% endif %}
+                        <p class="price">قیمت: {{ related_product.price|floatformat:0 }} تومان</p>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="item">
+                <p class="no-products">محصول مرتبطی یافت نشد</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- استایل -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+<style>
+    .related-products-wrapper {
+        position: relative;
+        padding: 0 40px;
+    }
+
+    .product-card {
+        border: 1px solid #eee;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .slider-nav {
+        position: absolute;
+        top: 45%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        background: white;
+        border: none;
+        border-radius: 50%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        color: #333;
+    }
+
+    .prev-nav {
+        right: -15px;
+    }
+
+    .next-nav {
+        left: -15px;
+    }
+</style>
+
+<!-- اسکریپت‌ها -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        const owl = $('.related-products-carousel').owlCarousel({
+            rtl: true,
+            loop: false,
+            margin: 20,
+            nav: false,
+            dots: false,
+            responsive: {
+                0: { items: 1 },
+                576: { items: 2 },
+                768: { items: 3 },
+                992: { items: 4 }
+            }
+        });
+
+        $('.next-nav').click(function () {
+            owl.trigger('next.owl.carousel');
+        });
+
+        $('.prev-nav').click(function () {
+            owl.trigger('prev.owl.carousel');
+        });
+    });
+</script>
+
+{% endblock %}

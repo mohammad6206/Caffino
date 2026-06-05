@@ -1,0 +1,285 @@
+{% load static %}
+{% load jalali_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+{% if messages %}
+<div class="message-container">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}" data-auto-dismiss="5000">
+        {{ message }}
+        <button onclick="this.parentElement.remove()">&times;</button>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+    // پاک کردن خودکار پیام‌ها
+    document.querySelectorAll('[data-auto-dismiss]').forEach(alert => {
+        const delay = parseInt(alert.dataset.autoDismiss);
+        setTimeout(() => {
+            alert.style.opacity = '0';
+            setTimeout(() => alert.remove(), 300);
+        }, delay);
+    });
+</script>
+{% endif %}
+
+<head>
+    <!-- متا تگ های پایه -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .logo {
+            display: flex;
+            align-items: center;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hide {
+            opacity: 0;
+        }
+    </style>
+    <!-- اطلاعات سایت -->
+    <title>Caffino | تجربه‌ای تازه از قهوه تخصصی</title>
+    <meta name="keywords" content="قهوه، کافی شاپ، قهوه ارگانیک، قهوه تخصصی، بهترین قهوه">
+    <meta name="description"
+        content="کافینو، همراه لحظات قهوه‌نوشی شما. قهوه ارگانیک، تخصصی و با کیفیت بالا. تجربه‌ای متفاوت از خرید و مصرف قهوه.">
+
+    <!-- استایل ها -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+    <!-- فونت آیکون ها -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css">
+
+    <!-- کتابخانه های جانبی -->
+    <link rel="stylesheet" href="{% static 'css/jquery.mCustomScrollbar.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+
+    <!-- فاوآیکون -->
+    <link rel="icon" href="{% static 'images/fevicon.png' %}" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+<body style="background-color: transparent !important;">
+    <div class="header_section">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                    <a href="{% url 'Caffino:index'%}" class="d-flex align-items-center">
+                        <img src="{% static 'images/new_brand1.png' %}" width="220" height="auto" alt="Cafino Logo">
+                        <i class="fas fa-coffee ml-2" style="color: #FFD700; font-size: 45px;"></i>
+                    </a>
+                </div>
+
+                <script>
+                    function Togglevisibility() {
+                        let logoContainer = document.querySelector(".logo a");
+                        logoContainer.classList.toggle("hide");
+                    }
+                    setInterval(Togglevisibility, 3000);
+                </script>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'Caffino:cart'%}" style="position: relative;">
+                                <img src="{% static 'images/cart-icon.png' %}" width="50" height="50" alt="">
+                                <i class=""></i> سبد خرید
+                                <span class=""></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            {% if user.is_authenticated %}
+                            <!-- اگر کاربر وارد شده باشد، نام و لینک به پروفایل نشان داده می‌شود -->
+                            <a class="nav-link" href="{% url 'Caffino:dashboard' %}" style="position: relative;">
+                                <img src="{% static 'images/login-icon.png' %}" width="50" height="50" alt="">
+                                {{ user.full_name }} <!-- نام کاربر را نمایش می‌دهیم -->
+                            </a>
+                            {% else %}
+                            <!-- اگر کاربر وارد نشده باشد، دکمه ورود و ثبت‌نام نمایش داده می‌شود -->
+                            <a class="nav-link" href="{% url 'Caffino:login' %}" style="position: relative;">
+                                <img src="{% static 'images/login-icon.png' %}" width="50" height="50" alt="">
+                                ورود/ثبت نام
+                            </a>
+                            {% endif %}
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'Caffino:services'%}">
+                                <img src="{% static 'images/services-icon.png' %}" width="50" height="50" alt="">
+                                <i class=""></i> خدمات
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'Caffino:products'%}">
+                                <img src="{% static 'images/product-icon.png' %}" width="50" height="50" alt="">
+                                <i class=""></i> محصولات
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'Caffino:about'%}">
+                                <img src="{% static 'images/about-icon.png' %}" width="50" height="50" alt="">
+                                <i class=""></i> درباره ما
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'Caffino:contact'%}">
+                                <img src="{% static 'images/contact-icon.png' %}" width="50" height="50" alt="">
+                                <i class=""></i>پیشنهادات
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'Caffino:index'%}">
+                                <img src="{% static 'images/home-icon.png' %}" width="50" height="50" alt="">
+                                <i class=""></i> خانه
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</body>
+<!--header section end -->
+{% block content %}
+
+{% endblock %}
+<!-- footer section start -->
+<div class="footer-container">
+    <!-- لوگو در چپ‌ترین بخش -->
+    <div class="footer-logo-wrapper">
+        <div class="footer-logo-circle">
+            <a href="{% url 'Caffino:index'%}" class="logo-link">
+                <img src="{% static 'images/new_brand1.png' %}" alt="Cafino Logo" class="footer-logo">
+                <i class="fas fa-coffee"></i>
+                <div class="footer-text-1">
+                    <p>قهوه‌ای برای لحظه‌هایت</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- درباره ما -->
+    <div class="footer-column">
+        <h3 class="useful_text">درباره ما</h3>
+        <p class="footer_text">بهترین Caffinoما در محصولات قهوه را ارائه می دهیم</p>
+    </div>
+
+    <!-- منوی سایت -->
+    <div class="footer-column">
+        <h3 class="bold-text">منو</h3>
+        <ul>
+            <li><a href="{% url 'Caffino:index'%}" class="bold-text">خانه</a></li>
+            <li><a href="{% url 'Caffino:about'%}" class="bold-text">درباره ما</a></li>
+            <li><a href="{% url 'Caffino:products'%}" class="bold-text">محصولات</a></li>
+            <li><a href="{% url 'Caffino:services'%}" class="bold-text">خدمات</a></li>
+            <li><a href="{% url 'Caffino:contact'%}" class="bold-text">پیشنهادات</a></li>
+        </ul>
+    </div>
+
+    <!-- شبکه‌های اجتماعی -->
+    <div class="footer-column">
+        <h3 class="bold-text">راه‌های ارتباطی</h3>
+
+        <!-- واتساپ -->
+        <a href="https://wa.me/989170496206" target="_blank" class="logo-row">
+            <img src="{% static 'images/whatsapp-icon.png' %}" class="gold-logo" alt="">
+            <p class="bold-text">WhatsApp</p>
+        </a>
+
+        <!-- اینستاگرام -->
+        <a href="https://instagram.com/CaffinoShop" target="_blank" class="logo-row">
+            <img src="{% static 'images/instagram-icon (3).png' %}" class="gold-logo" alt="">
+            <p class="bold-text">Instagram</p>
+        </a>
+
+        <!-- توییتر -->
+        <a href="https://youtube.com/CaffinoShop" target="_blank" class="logo-row">
+            <img src="{% static 'images/YouTube-icon(3).png' %}" class="gold-logo" alt="">
+            <p class="bold-text">YouTube</p>
+        </a>
+    </div>
+
+
+    <!-- اطلاعات تماس -->
+    <div class="footer-column contact-column">
+        <h3 class="useful_text">تماس با ما</h3>
+        <ul>
+            <li><i class="fa fa-map-marker"></i> استان فارس - شهرستان لامرد</li>
+
+            <!-- شماره تلفن با قابلیت کپی -->
+            <li class="copy-container" onclick="copyPhoneNumber()">
+                <i class="fa fa-phone"></i>
+                <span id="phoneNumber">09170496206</span>
+                <span class="copy-message" id="copyMessage">کپی شد!</span>
+            </li>
+
+            <li><i class="fa fa-envelope"></i> CoffinoShop@gmail.com</li>
+        </ul>
+    </div>
+</div>
+<!-- copyright section start -->
+<div class="copyright_section_new">
+    <div class="container_new">
+        <p class="copyright_text_new">2025 All Rights Reserved. Develop by Mohammad Mehdi Mokhtari</p>
+    </div>
+</div>
+<!-- copyright section end -->
+<!-- footer section end -->
+<!-- Javascript files-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="{%static 'js/bootstrap.bundle.min.js'%}"></script>
+
+<script src="{%static 'js/plugin.js'%}"></script>
+<script src="{%static 'js/product.js'%}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{%static 'js/copyPhoneNumber.js'%}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // اسلایدر بنر اصلی
+        const mainBanner = document.getElementById('main_banner_slider');
+        if (mainBanner) {
+            new bootstrap.Carousel(mainBanner, {
+                interval: 2000,
+                wrap: true
+            });
+
+            // مدیریت فعال/غیرفعال کردن نشانگرهای سفارشی
+            mainBanner.addEventListener('slid.bs.carousel', function (e) {
+                const indicators = this.querySelectorAll('.banner-indicator-btn');
+                indicators.forEach(ind => ind.classList.remove('active'));
+                this.querySelector(`.banner-indicator-btn[data-bs-slide-to="${e.to}"]`).classList.add('active');
+            });
+        }
+
+        // اسلایدر نظرات مشتریان
+        const testimonialsSlider = document.getElementById('testimonialsCarousel');
+        if (testimonialsSlider) {
+            new bootstrap.Carousel(testimonialsSlider, {
+                interval: 5000,
+                pause: 'hover',
+                wrap: true
+            });
+        }
+    });
+</script>
+
+
+</body>
+
+</html>

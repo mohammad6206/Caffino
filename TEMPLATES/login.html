@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% load jalali_tags %}
+
+
+{% block title %}ورود به حساب{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">
+
+<section class="auth-section">
+  <div class="auth-box">
+    <h2>ورود به حساب</h2>
+    <form method="post">
+      {% csrf_token %}
+      {% for field in form %}
+      <div class="auth-form-group">
+        {{ field.label_tag }}
+        {{ field }}
+        {% if field.errors %}
+        <small style="color: red;">{{ field.errors.0 }}</small>
+        {% endif %}
+      </div>
+      {% endfor %}
+      <input type="hidden" name="next" value="{{ next }}">
+      <button type="submit" class="btn-auth-submit">ورود</button>
+    </form>
+    <div class="auth-footer">
+      <a href="{% url 'Caffino:register' %}">ثبت‌ نام</a>
+    </div>
+    <div class="auth-footer">
+      <a href="{% url 'Caffino:phone_reset' %}">فراموشی رمز عبور</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% for product in products %}
+<div class="col-md-4">
+    <div class="container_main product-card">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="image">
+        <div class="overlay">
+            <div class="text">
+                <a href="{% url 'Caffino:product_detail' product.id %}">
+                    جزئیات محصول
+                </a>
+            </div>
+        </div>
+        <div class="product-info">
+            <h3>{{ product.name }}</h3>
+            {% if product.weight %}
+            <p class="weight">وزن: {{ product.weight }} گرم</p>
+            {% endif %}
+            <p class="price">قیمت: {{ product.price }}</p>
+        </div>
+    </div>
+</div>
+{% empty %}
+<p class="text-center">محصولی یافت نشد.</p>
+{% endfor %}

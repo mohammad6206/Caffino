@@ -1,0 +1,53 @@
+{% extends "base.html"%}
+{% load static%}
+{% load jalali_tags %}
+
+{% block content %}
+<!-- services section start -->
+<div class="services_section layout_padding">
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-12">
+            <h1 class="services_taital">خدمات</h1>
+         </div>
+      </div>
+      <div class="services_section_2">
+         <div class="row">
+            <div class="col-lg-4 col-sm-12 col-md-4">
+               <div class="box_main active">
+                  <div class="house_icon">
+                     <img src="{%static 'images/exprees.png'%}">
+                  </div>
+                  <h3 class="decorate_text">تحویل اکسپرس سفارشات</h3>
+                  <p class="tation_text">ارسال و تحویل اکسپرس سفارشات به لامرد و حومه در کمتر از 30 دقیقه و ارسال به
+                     سراسر کشور
+                     طی 2 تا 7 روز کاری با پست و تیپاکس</p>
+               </div>
+            </div>
+            <div class="col-lg-4 col-sm-12 col-md-4">
+               <div class="box_main">
+                  <div class="house_icon">
+                     <img src="{%static 'images/numberone.png'%}">
+                  </div>
+                  <h3 class="decorate_text">بسته بندی ویژه</h3>
+                  <p class="tation_text">ما قهوه رو نه فقط به عنوان یک نوشیدنی، بلکه به عنوان یک تجربه لوکس ارائه
+                     می‌کنیم. بسته‌بندی‌های ویژه و مقاوم باعث حفظ عطر و تازگی قهوه شما می‌شود</p>
+               </div>
+            </div>
+            <div class="col-lg-4 col-sm-12 col-md-4">
+               <div class="box_main">
+                  <div class="house_icon">
+                     <img src="{%static 'images/support.png'%}">
+                  </div>
+                  <h3 class="decorate_text">پشتیبانی 24 ساعته</h3>
+                  <p class="tation_text">پاسخگویی سریع،مشاوره تخصصی قهوه و حل مشکلات سفارش</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- services section end -->
+{% endblock%}
+
+</html>

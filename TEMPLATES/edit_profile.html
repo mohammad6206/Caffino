@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% load jalali_tags %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+<div dir="rtl" class="profile-container">
+    <div class="profile-card">
+        <h2 class="profile-title">ویرایش پروفایل</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}
+                        <div class="error">{{ field.errors|striptags }}</div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            <button type="submit" class="submit-btn">ذخیره تغییرات</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

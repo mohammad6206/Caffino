@@ -1,0 +1,32 @@
+{% extends "base.html"%}
+{% load static%}
+{% load jalali_tags %}
+{% block content %}
+<!-- about section start -->
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<div class="about_section layout_padding">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-6">
+            <div class="about_taital_main">
+               <div class="about_taital">!چرا کافینو</div>
+               <p class="about_text">🔹 ارائه طعم‌های منحصربه‌فرد و متنوع🔹
+               <p class="about_text">🔹 استفاده از دانه‌های منتخب و باکیفیت🔹
+               <p class="about_text">🔹 توجه ویژه به حفظ استانداردهای بین‌المللی قهوه🔹
+               <p class="about_text">🔹 پشتیبانی اختصاصی برای راهنمایی بهترین انتخاب🔹
+               <p class="about_text">>کافینو با هدف تعریف دوباره‌ی تجربه خرید و مصرف قهوه، نه صرفاً به عنوان یک فروشگاه
+                  بلکه به عنوان همراهی برای لحظات ناب قهوه‌نوشی شما، شکل گرفته است. ما بر این باوریم که کیفیت، دقت و
+                  انتخاب آگاهانه، جوهره‌ی یک تجربه منحصربه‌فرداست 
+
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="about_img"><img src="{%static 'images/about-img.png'%}"></div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- about section end -->
+{% endblock%}
+
+</html>

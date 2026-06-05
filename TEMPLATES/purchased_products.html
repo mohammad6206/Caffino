@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% load jalali_tags %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/orders_product.css' %}">
+
+<div class="order-container py-5" dir="rtl">
+    <div class="order-card-wrapper">
+        <h3 class="order-title">
+            محصولات خریداری شده 
+        </h3>
+
+        {% if order_items %}
+        <div class="order-items-row">
+            {% for item in order_items %}
+            <div class="order-item-col">
+                <div class="order-item-card">
+                    {% if item.product.image %}
+                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="order-item-image">
+                    {% endif %}
+                    <div class="order-item-body">
+                        <h5 class="card-title">{{ item.product.name|truncatechars:25 }}</h5>
+                        <p class="card-text price">{{ item.product.price|floatformat:"0" }} تومان</p>
+                    </div>
+                    <div class="order-item-footer">
+                        <a href="{% url 'Caffino:product_detail' item.product.id %}" class="order-item-button">
+                            مشاهده محصول
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="order-empty-message">هنوز محصولی خریداری نکرده‌اید.</p>
+        {% endif %}
+        <div class="mt-4">
+            <a href="{% url 'Caffino:dashboard' %}" class="btn btn-secondary">
+                بازگشت به داشبورد
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

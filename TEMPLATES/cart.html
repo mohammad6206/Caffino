@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% load static %}
+{% load jalali_tags %}
+
+
+{% block content %}
+<div class="cart-container stylish-cart">
+    <h1 class="cart-title animated-title">سبد خرید</h1>
+
+    {% if cart_items %}
+    <div class="cart-items-wrapper">
+        <ul class="cart-items">
+            {% for item in cart_items %}
+            <li class="cart-item animated-item">
+                <div class="item-image">
+                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" loading="lazy">
+                </div>
+                <div class="item-details">
+                    <h3 class="item-name">{{ item.product.name }}</h3>
+                    <p class="item-price price">قیمت واحد: {{ item.product.price }} تومان</p>
+                    <div class="quantity-controls">
+                        <form method="post" action="{% url 'Caffino:update_cart_item' item.id %}">
+                            {% csrf_token %}
+                            <div class="quantity-input">
+                                <label for="quantity_{{ item.id }}">تعداد:</label>
+                                <input type="number" id="quantity_{{ item.id }}" name="quantity"
+                                    value="{{ item.quantity }}" min="1" class="quantity-field">
+                            </div>
+                            <button type="submit" class="update-quantity-button interactive-button">
+                                <i class="fas fa-sync-alt"></i> <span class="button-text">به‌روزرسانی</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <p class="item-total highlight-text price">{{ item.total_price }}:جمع</p>
+                <div class="item-actions">
+                    <form method="post" action="{% url 'Caffino:remove_from_cart' item.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="remove-item-button interactive-button">
+                            <i class="fas fa-trash-alt"></i> <span class="button-text">حذف</span>
+                        </button>
+                    </form>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="cart-summary stylish-summary">
+        <h2 class="summary-title animated-title">خلاصه سبد خرید</h2>
+        <p class="summary-item">
+            <span class="label">تعداد کل محصولات:</span>
+            <span class="value">{{ total_items }}</span>
+        </p>
+        <p class="summary-item">
+            <span class="label">جمع کل:</span>
+            <span class="value highlight-text price">{{ subtotal }} تومان</span>
+        </p>
+        <p class="summary-item">
+            <span class="label">هزینه ارسال:</span>
+            <span class="value">به زودی محاسبه می‌شود</span>
+        </p>
+        <p class="summary-item grand-total">
+            <span class="label">مبلغ نهایی:</span>
+            <span class="value highlight-text price">{{ grand_total }} تومان</span>
+        </p>
+        <div class="checkout-button-wrapper">
+            <form action="{% url 'Caffino:process_payment' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="checkout-button interactive-button">
+                    <i class="fas fa-check-circle"></i>
+                    <span class="button-text">پرداخت نهایی</span>
+                </button>
+            </form>
+        </div>
+    </div>
+    {% else %}
+    <p class="empty-cart-message animated-text">سبد خرید شما خالی است.</p>
+    <div class="back-to-shop">
+        <a href="{% url 'Caffino:products' %}" class="interactive-button">
+            <i class="fas fa-arrow-left"></i> <span class="button-text">بازگشت به فروشگاه</span>
+        </a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    .price {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        direction: ltr;
+        display: inline-block;
+    }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/cart.js' %}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // اعتبارسنجی تعداد محصول
+        document.querySelectorAll('.quantity-field').forEach(input => {
+            input.addEventListener('change', function () {
+                if (this.value < 1) {
+                    this.value = 1;
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

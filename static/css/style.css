@@ -1,0 +1,3722 @@
+/*--------------------------------------------------------------------- File Name: style.css ---------------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------------- import Fonts ---------------------------------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+
+/*****---------------------------------------- 1) font-family: 'Rajdhani', sans-serif;
+ 2) font-family: 'Poppins', sans-serif;
+ ----------------------------------------*****/
+
+
+/*--------------------------------------------------------------------- import Files ---------------------------------------------------------------------*/
+
+@import url(animate.min.css);
+@import url(normalize.css);
+@import url(icomoon.css);
+@import url(css/font-awesome.min.css);
+@import url(meanmenu.css);
+@import url(owl.carousel.min.css);
+@import url(swiper.min.css);
+@import url(slick.css);
+@import url(jquery.fancybox.min.css);
+@import url(jquery-ui.css);
+@import url(nice-select.css);
+
+/*--------------------------------------------------------------------- skeleton ---------------------------------------------------------------------*/
+
+* {
+    box-sizing: border-box !important;
+    transition: ease all 0.5s;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: #f5f5dc;
+    /* رنگ متن کرم/بژ برای هماهنگی با تم لوکس */
+    font-size: 14px;
+    font-family: Poppins, sans-serif;
+    /* حفظ فونت Poppins و اضافه کردن sans-serif به عنوان پشتیبان */
+    line-height: 1.80857;
+    font-weight: normal;
+    overflow-x: hidden !important;
+    background-image: url(../images/services-backgrand.png);
+    /* بک‌گراند اصلی */
+    /* градиент چند لایه قهوه‌ای و طلایی */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+a {
+    color: #A8875F;
+    /* رنگ طلایی ملایم برای لینک‌ها */
+    text-decoration: none !important;
+    outline: none !important;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+a:hover {
+    color: #D4AF37;
+    /* طلایی روشن در حالت hover */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    letter-spacing: 0;
+    font-weight: normal;
+    position: relative;
+    padding: 0 0 10px 0;
+    font-weight: normal;
+    line-height: normal;
+    color: #D4AF37;
+    /* رنگ طلایی برای заголовки */
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    /* سایه ملایم برای برجستگی */
+}
+
+h1 {
+    font-size: 24px
+}
+
+h2 {
+    font-size: 22px
+}
+
+h3 {
+    font-size: 18px
+}
+
+h4 {
+    font-size: 16px
+}
+
+h5 {
+    font-size: 14px
+}
+
+h6 {
+    font-size: 13px
+}
+
+*,
+*::after,
+*::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+    color: #D4AF37;
+    /* طلایی برای لینک‌های داخل заголовки */
+    text-decoration: none !important;
+    opacity: 1
+}
+
+button:focus {
+    outline: none;
+}
+
+ul,
+li,
+ol {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+p {
+    margin: 20px;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 24px;
+}
+
+/* استایل‌های اضافی برای فوتر، هدر و غیره (در صورت نیاز) */
+.header_section {
+    /* می‌تونید بک‌گراند شفاف یا градиент ملایم تیره‌تر برای هدر انتخاب کنید */
+    background: rgba(0, 0, 0, 0.5);
+    /* مثال: بک‌گراند نیمه‌شفاف */
+    padding: 20px 0;
+    border-bottom: 1px solid #5E412F;
+}
+
+.footer-container {
+    background: rgba(0, 0, 0, 0.7);
+    /* بک‌گراند تیره‌تر برای فوتر */
+    color: #f5f5dc;
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid #5E412F;
+}
+
+.footer-container a {
+    color: #A8875F;
+}
+
+.footer-container a:hover {
+    color: #D4AF37;
+}
+
+a,
+.btn {
+    text-decoration: none !important;
+    outline: none !important;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+:focus {
+    outline: 0;
+}
+
+.paddind_bottom_0 {
+    padding-bottom: 0 !important;
+}
+
+.btn-custom {
+    margin-top: 20px;
+    background-color: transparent !important;
+    border: 2px solid #ddd;
+    padding: 12px 40px;
+    font-size: 16px;
+}
+
+.lead {
+    font-size: 18px;
+    line-height: 30px;
+    color: #767676;
+    margin: 0;
+    padding: 0;
+}
+
+.form-control:focus {
+    border-color: #ffffff !important;
+    box-shadow: 0 0 0 .2rem rgba(255, 255, 255, .25);
+}
+
+.navbar-form input {
+    border: none !important;
+}
+
+.badge {
+    font-weight: 500;
+}
+
+blockquote {
+    margin: 20px 0 20px;
+    padding: 30px;
+}
+
+button {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.full {
+    float: left;
+    width: 100%;
+}
+
+.layout_padding {
+    padding-top: 90px;
+    padding-bottom: 0px;
+}
+
+/* header section start */
+
+.header_section {
+    width: 100%;
+    float: left;
+    background-color: #252525;
+    height: auto;
+    background-size: 100%;
+}
+
+.bg-light {
+    background-color: transparent !important;
+}
+
+.header_main {
+    width: 100%;
+    float: left;
+    background: #10e2bd;
+    height: 80px;
+}
+
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: #f76d37;
+}
+
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #f76d37;
+}
+
+.navbar {
+    padding: 20px 1rem;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: .5rem;
+    padding-left: .5rem;
+    font-size: 18px;
+    color: #fff;
+}
+
+.logo {}
+
+/* header section end */
+
+/* banner section start */
+
+/* استایل اصلی بنر */
+.banner_section {
+    width: 100%;
+    float: left;
+    height: auto;
+    background-size: 100%;
+    padding: 10px 0px 25px 0px;
+    background-repeat: no-repeat;
+}
+
+/* استایل‌های اسلایدر اصلی */
+#main_slider {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* نشانگرهای دایره‌ای */
+.slider-indicators {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+    z-index: 2;
+}
+
+.slider-indicators button {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider-indicators button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.slider-indicators button.active {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* کنترل‌های قبلی/بعدی */
+#main_slider .carousel-control-prev,
+#main_slider .carousel-control-next {
+    width: 45px;
+    height: 45px;
+    background: #fff;
+    opacity: 1;
+    font-size: 30px;
+    color: #333333;
+    top: auto;
+    bottom: 25px;
+    z-index: 3;
+}
+
+#main_slider .carousel-control-prev {
+    left: 20px;
+    right: auto;
+}
+
+#main_slider .carousel-control-next {
+    left: auto;
+    right: 20px;
+}
+
+#main_slider .carousel-control-prev:hover,
+#main_slider .carousel-control-next:hover {
+    color: #ffffff;
+    background-color: #f76d37;
+}
+
+/* banner section end */
+
+/* about section start */
+
+.about_section {
+    width: 100%;
+    float: left;
+}
+
+.about_taital_main {
+    width: 100%;
+    float: left;
+    padding: 60px 0px;
+}
+
+.about_taital {
+    width: 100%;
+    float: left;
+    font-size: 40px;
+    color: gold;
+    text-shadow: 1px 1px 2px black;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.about_img img {
+    border-radius: 10px;
+    position: relative;
+    top: -80px;
+}
+
+.about_text {
+    width: 100%;
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    font-weight: bold;
+    margin: 0px;
+    padding-top: 10px;
+}
+
+.about_text {
+    width: 100%;
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    margin: 0px;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.read_bt {
+    width: 175px;
+    float: left;
+    padding-top: 40px;
+}
+
+.read_bt a {
+    border-radius: 10px;
+    width: 100%;
+    float: left;
+    font-size: 18px;
+    background-color: #252525;
+    color: #ffffff;
+    text-align: center;
+    padding: 8px;
+}
+
+.read_bt a:hover {
+    color: #ffffff;
+    background-color: #f76d37;
+}
+
+/* about section end */
+
+/* gallery section start */
+
+.gallery_section {
+    width: 100%;
+    float: left;
+    padding-bottom: 90px;
+}
+
+.gallery_taital {
+    width: 100%;
+    float: left;
+    text-align: center;
+    font-size: 40px;
+    color: #f76d37;
+    font-weight: bold;
+}
+
+.gallery_text {
+    width: 100%;
+    float: left;
+    font-size: 16px;
+    text-align: center;
+    margin: 0px;
+    padding-top: 20px;
+    color: #262525;
+}
+
+.gallery_section_2 {
+    width: 100%;
+    float: left;
+    padding-top: 50px;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+img.image {
+    min-height: 300px;
+}
+
+.container_main {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgb(254, 230, 220, 0.6);
+    margin: 0 auto;
+}
+
+.container_main:hover .overlay {
+    opacity: 1;
+}
+
+.text {
+    color: white;
+    font-size: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 80%;
+    text-align: center;
+}
+
+.seemore_bt {
+    width: 170px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+}
+
+.seemore_bt a {
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #252525;
+    padding: 10px 0px;
+    margin-top: 40px;
+}
+
+.seemore_bt a:hover {
+    background-color: #f76d37;
+    color: #ffffff;
+}
+
+a:hover {
+    color: #f76d37;
+    text-decoration: underline;
+}
+
+/* gallery section end */
+
+/* services section start */
+
+.services_section {
+    width: 100%;
+    float: left;
+    height: auto;
+    padding-bottom: 100px;
+    background-attachment: fixed;
+}
+
+.services_taital {
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    margin-top: -40px;
+    float: left;
+    font-size: 40px;
+    color: gold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+    text-align: center;
+}
+
+.services_text {
+    font-family: 'vazir', sans-serif;
+    width: 100%;
+    float: left;
+    font-size: 26px;
+    color: gold;
+    margin: 0px;
+    text-align: center;
+}
+
+.house_icon {
+    width: 200px;
+    height: auto;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.house_icon img {
+    width: 55px;
+    min-height: 60px;
+}
+
+
+.box_main {
+    width: 100%;
+    height: 320px;
+    padding: 40px 30px;
+    background:
+        linear-gradient(145deg,
+            #F9E076 0%,
+            #D4AF37 30%,
+            #5C4033 80%);
+    box-shadow:
+        0 4px 20px rgba(92, 64, 51, 0.3),
+        inset 0 2px 4px rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: #2A1E17;
+    position: relative;
+    border: 1px solid #D4AF37;
+}
+
+.box_main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(135deg,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 50%);
+    pointer-events: none;
+}
+
+.box_main:hover .decorate_text {
+    color: #000;
+}
+
+.box_main:hover .tation_text {
+    color: #000;
+}
+
+.box_main:hover .readmore_bt {
+    display: block;
+}
+
+.box_main:hover .readmore_bt a {
+    color: #ffffff;
+    background-color: #000;
+}
+
+.services_section_2 {
+    width: 100%;
+    float: left;
+    padding-top: 50px;
+}
+
+.decorate_text {
+    font-family: 'vazir', sans-serif;
+    width: 100%;
+    font-size: 30px;
+    color: white;
+    padding-top: 15px;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.tation_text {
+    font-family: 'vazir', sans-serif;
+    width: 100%;
+    font-size: 16px;
+    color: #ffffff;
+    margin: 10px;
+    text-align: center;
+}
+
+.readmore_bt {
+    width: 175px;
+    padding-top: 40px;
+    margin: 0 auto;
+    display: flex;
+    display: none;
+    padding-bottom: 40px;
+}
+
+.readmore_bt a {
+    width: 100%;
+    float: left;
+    font-size: 18px;
+    background-color: #070603;
+    color: #ffffff;
+    text-align: center;
+    padding: 8px;
+    text-transform: uppercase;
+}
+
+.readmore_bt a:hover {
+    color: #ffffff;
+    background-color: #f76d37;
+}
+
+/* services section end */
+
+/* client section start */
+
+.testimonials_section {
+    padding: 120px 0;
+}
+
+.testimonial_item {
+    background: linear-gradient(135deg, #ffffff 0%, #f9faff 100%);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow:
+        0 10px 30px rgba(41, 72, 255, 0.08),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+    margin: 20px;
+    position: relative;
+
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
+    z-index: 1;
+}
+
+.testimonial_item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle,
+            rgba(100, 120, 255, 0.08) 0%,
+            rgba(100, 120, 255, 0.03) 50%,
+            transparent 70%);
+    transform: rotate(30deg);
+    z-index: -1;
+    animation: shimmer 8s infinite linear;
+}
+
+.testimonial_item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.7) 0%,
+            rgba(255, 255, 255, 0.9) 100%);
+    z-index: -1;
+    border-radius: 18px;
+    margin: 1px;
+}
+
+.testimonial_item:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 15px 45px rgba(41, 72, 255, 0.12),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+}
+
+.testimonial_item:hover::before {
+    animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: rotate(30deg) translate(-10%, -10%);
+    }
+
+    100% {
+        transform: rotate(30deg) translate(10%, 10%);
+    }
+}
+
+.testimonials_taital {
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    color: gold;
+    margin-bottom: 60px;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.testimonials_taital::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: gold;
+    border-radius: 2px;
+}
+
+.quote_icon {
+    font-size: 28px;
+    color: #4d6bff;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.testimonial_text {
+    font-size: 18px;
+    line-height: 1.8;
+    color: black;
+    margin-bottom: 25px;
+    font-family: 'vazir', sans-serif;
+}
+
+.testimonial_author h5 {
+    color: #2a3bff;
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: right;
+
+}
+
+.testimonial_author span {
+    color: #666;
+    font-size: 14px;
+    display: block;
+    text-align: right;
+}
+
+.rating {
+    color: #ffc107;
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: -20px;
+    /* فاصله از پایین باکس */
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.carousel-indicators li {
+    background-color: #d1d7ff;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 6px;
+    transition: all 0.3s ease;
+}
+
+.carousel-indicators .active {
+    background-color: gold;
+    width: 30px;
+    border-radius: 5px;
+}
+
+/* client section end */
+
+/* contact section start */
+
+.contact_section {
+    width: 100%;
+    float: left;
+}
+
+
+.contact_section_1 {
+    width: 100%;
+    float: left;
+    background: linear-gradient(to top, #33221E, #4A342A);
+
+}
+
+.contact_text {
+    width: 100%;
+    float: left;
+    font-size: 40px;
+    text-align: center;
+    color: gold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+}
+
+.contact_section_2 {
+    width: 100%;
+    float: left;
+}
+
+.mail_section {
+    width: 100%;
+    float: left;
+    background-image: url(../images/img-9.png);
+    height: auto;
+    padding: 23px 70px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.long_text {
+    width: 52%;
+    margin: 0 auto;
+    font-size: 16px;
+    text-align: center;
+    color: #b2afaf;
+    padding-top: 30px;
+    display: flex;
+}
+
+.email_text {
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+}
+
+.email-bt {
+    color: #080707;
+    width: 100%;
+    height: 55px;
+    font-size: 20px;
+    padding: 20px 40px;
+    border: 0px;
+    border-radius: 30px;
+}
+
+.massage-bt {
+    color: #080707;
+    width: 100%;
+    height: 150px;
+    font-size: 20px;
+    padding: 40px;
+    border: 0px;
+    border-radius: 50px;
+}
+
+.send_btn {
+    width: 170px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.main_bt {
+    display: inline-block;
+    padding: 12px 35px;
+    background: linear-gradient(135deg, #d4af37 0%, #f6d743 100%);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.main_bt:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+    background: linear-gradient(135deg, #f6d743 0%, #d4af37 100%);
+}
+
+.main_bt:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+}
+
+.main_bt::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.main_bt:hover::before {
+    left: 100%;
+}
+
+.send_btn {
+    text-align: center;
+    margin-top: 25px;
+    padding-bottom: 10px;
+}
+
+.padding_0 {
+    padding: 0px;
+}
+
+/* contact section end */
+
+/* footer section start */
+
+.footer_section {
+    width: 100%;
+    float: left;
+    background-color: #252525;
+    height: auto;
+    padding: 95px 0px;
+}
+
+.useful_text {
+    width: 100%;
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.footer_text {
+    width: 100%;
+    float: left;
+    font-size: 14px;
+    color: #ffffff;
+    margin: 0px;
+}
+
+.footer_menu {
+    width: 100%;
+    float: left;
+}
+
+.footer_menu ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.footer_menu li {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.footer_menu li a {
+    color: #ffffff;
+}
+
+.footer_menu li a:hover {
+    color: #f76d37;
+}
+
+.dummy_text {
+    width: 30%;
+    float: left;
+    font-size: 14px;
+    color: #ffffff;
+    margin: 0px;
+}
+
+.location_text {
+    width: 100%;
+    float: left;
+}
+
+.location_text ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.location_text li {
+    font-size: 14px;
+    color: #ffffff;
+    padding: 0px 0px 5px 0px;
+}
+
+.location_text li a {
+    color: #ffffff;
+}
+
+.location_text li a:hover {
+    color: #f76d37;
+}
+
+.padding_left_10 {
+    padding-left: 10px;
+}
+
+
+/* footer section end */
+
+/* copyright section start */
+
+.copyright_section {
+    width: 100%;
+    float: left;
+    background-color: #ffffff;
+    height: auto;
+}
+
+.copyright_text {
+    width: 100%;
+    float: left;
+    font-size: 16px;
+    color: #252525;
+    text-align: center;
+    margin-left: 0px;
+}
+
+.copyright_text a {
+    color: #252525;
+}
+
+.copyright_text a:hover {
+    color: #f76d37;
+}
+
+
+/* copyright section end */
+
+.margin_top90 {
+    margin-top: 90px;
+}
+
+
+
+
+/*about style*/
+/******************************************************/
+.about_taital_main {
+    text-align: center;
+    margin-top: -80px;
+    margin-left: -20px;
+    margin-bottom: 50px;
+    /* فاصله بین دو بخش */
+}
+
+.about_taital {
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.about_text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 20px;
+    /* افزایش فاصله بین متن‌ها */
+}
+
+
+
+
+
+/*header style in base.html*/
+/*******************************************************/
+.header_section {
+    background: linear-gradient(to bottom, #33221E, #4A342A);
+    /* قهوه‌ای تیره به کمی روشن‌تر */
+    /* градиانت قهوه‌ای طلایی برای هماهنگی */
+    padding: 20px 0;
+    border-bottom: none;
+    /* خط جداکننده تیره */
+
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-nav .nav-link {
+    font-family: 'Montserrat', sans-serif;
+    color: #D4AF37 !important;
+    /* طلایی لوکس */
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 0;
+    /* حذف بوردر رادیوس */
+    border: none !important;
+    /* حذف بوردر */
+    box-shadow: none !important;
+    /* حذف باکس شادو */
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    /* حذف transition برای باکس شادو */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 10px;
+    position: relative;
+    /* برای قرار دادن خط زیر لینک */
+}
+
+.navbar-nav .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    /* فاصله خط از متن */
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #D4AF37;
+    /* رنگ طلایی خط */
+    transition: width 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* transition برای پهنا و درخشش */
+    box-shadow: 0 0 5px rgba(218, 165, 32, 0);
+    /* درخشش اولیه خاموش */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #FFF8DC !important;
+    /* سفید مایل به کرم در حالت hover */
+    transform: scale(1.05);
+    /* بزرگنمایی ملایم */
+}
+
+.navbar-nav .nav-link:hover::before {
+    width: 100%;
+    /* کشیده شدن خط تا انتها در hover */
+    box-shadow: 0 0 10px #D4AF37;
+    /* درخشش طلایی در hover */
+}
+
+.cart-count {
+    background-color: #FF4500;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+}
+
+.nav-link i {
+    font-weight: bold !important;
+    font-size: 26px !important;
+}
+
+.nav-link img {
+    width: 26px;
+    height: 26px;
+    filter: brightness(1.2) contrast(1.1) sepia(10%);
+}
+
+/* حذف خط جداکننده سراسری زیر هدر اگر نمی‌خواهید */
+/*.header-separator {
+    display: none;
+}*/
+
+
+
+
+
+/*footer style in base.html*/
+/*******************************************************/
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 40px 20px;
+    background: linear-gradient(to top, #33221E, #4A342A);
+    /* قهوه‌ای تیره به کمی روشن‌تر (جهت معکوس برای فوتر) */
+    /* بک‌گراند градиانت مشابه هدر */
+    width: 100%;
+    box-sizing: border-box;
+    border-top: none;
+}
+
+/* بقیه استایل‌های فوتر بدون تغییر */
+
+
+.footer-column {
+    flex: 1;
+    max-width: 200px;
+    text-align: right;
+    padding: 0 20px;
+    position: relative;
+}
+
+.footer-column:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -10px !important;
+    width: 2px;
+    height: 100%;
+    background-color: white;
+}
+
+.footer-column:last-child {
+    border-left: none;
+    /* حالا آخرین ستون دیگه نیازی به خط نداره */
+}
+
+
+.footer-logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 10px;
+    min-width: 220px;
+    margin-right: auto;
+    /* چسبیدن به چپ */
+    padding-top: 50px;
+}
+
+.footer-logo {
+    width: 220px !important;
+    height: auto !important;
+}
+
+.footer-text-1 p {
+    font-family: 'Vazir', sans-serif !important;
+    font-size: 25px !important;
+    font-weight: bold !important;
+    color: gold !important;
+    text-align: center !important;
+
+}
+
+.copyright_section_new {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #33221E;
+    /* یک رنگ قهوه‌ای تیره یکدست برای بخش کپی‌رایت */
+    /* بک‌گراند градиانت مشابه هدر و فوتر */
+    width: 100%;
+    padding: 20px 0;
+    margin-top: 0;
+    /* اگر از قبل فاصله‌ای بالا داشت و نمی‌خوای */
+    border-top: none;
+    /* خط نازک برای زیبایی دلخواه */
+}
+
+/* بقیه استایل‌های بخش کپی‌رایت بدون تغییر */
+
+.copyright_text_new {
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    /* رنگ سفید */
+    width: 100%;
+    margin: 0;
+}
+
+.container_new {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.footer-logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+}
+
+.footer-logo-circle {
+    width: 300px;
+    height: 300px;
+    border: 4px solid gold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    /* یا هم‌رنگ با فوترت */
+    box-shadow: 0 0 20px gold;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.footer-logo-circle:hover {
+    box-shadow: 0 0 30px 10px gold;
+}
+
+.logo-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-link img {
+    width: 120px;
+    margin-bottom: 10px;
+}
+
+.logo-link i {
+    color: gold;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* استایل برای سرتیترهای هر ستون */
+.footer-column.contact-column {
+    padding-right: 0;
+    flex: 1.5;
+    /* پهن‌تر شدن ستون نسبت به بقیه */
+    max-width: 240px;
+    /* افزایش حداکثر عرض ستون */
+}
+
+.footer-column h3 {
+    font-family: 'Vazir', sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    color: gold;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* استایل برای متن‌های زیر سرتیترها */
+.footer-column p,
+.footer-column li,
+.footer-column a {
+    font-family: 'Vazir', sans-serif;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    line-height: 1.8;
+    text-decoration: none;
+}
+
+/* آیکون‌های لیست تماس */
+.footer-column li i {
+    margin-left: 8px;
+    color: gold;
+}
+
+/* رنگ لینک‌های منو هنگام هاور */
+.footer-column a:hover {
+    color: #FFD700;
+    transition: color 0.3s;
+}
+
+/* چینش لوگو و متن شبکه‌های اجتماعی */
+.logo-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.logo-row p {
+    margin-top: 5px;
+    /* فاصله کمتر بین متن و آیکون */
+}
+
+.gold-logo {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+.footer-column.contact-column {
+    padding-right: 0;
+    /* نزدیک شدن به لبه راست */
+}
+
+.footer-column.contact-column h3 {
+    font-family: 'Vazir', sans-serif;
+    color: gold;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.footer-column.contact-column ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.footer-column.contact-column ul li {
+    color: white;
+    font-size: 16px;
+    font-family: 'Vazir', sans-serif;
+    margin-bottom: 12px;
+    direction: rtl;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: right;
+}
+
+.footer-column.contact-column ul li i {
+    margin-left: 10px;
+    color: gold;
+    font-size: 18px;
+    min-width: 20px;
+}
+
+
+.gallery_section {
+    padding: 60px 0;
+    /* فاصله بالا و پایین بخش */
+    /* رنگ پس‌زمینه ملایم */
+}
+
+
+
+.gallery_taital {
+    font-size: 40px;
+    /* اندازه بزرگتر عنوان */
+    color: gold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    /* رنگ تیره عنوان */
+    text-align: center;
+    /* وسط‌چین کردن عنوان */
+    margin-bottom: 30px;
+    /* فاصله پایین عنوان */
+}
+
+.gallery_section_2 {
+    padding-top: 20px;
+    /* فاصله بالای گالری */
+}
+
+.container_main {
+    position: relative;
+    /* برای قرارگیری لایه شناور */
+    overflow: hidden;
+    /* مخفی کردن قسمت‌های بیرون‌زده لایه شناور */
+    border-radius: 8px;
+    /* لبه‌های گرد برای تصاویر */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* سایه ملایم */
+    margin-bottom: 30px;
+    /* فاصله بین هر محصول */
+}
+
+/* ... استایل‌های قبلی ... */
+
+.image {
+    width: 100%;
+    /* عرض تصویر 100% контейнера */
+    height: 250px;
+    /* ارتفاع ثابت برای تمام تصاویر (مقدار را بر اساس نیاز تنظیم کنید) */
+    display: block;
+    /* حذف فضای اضافی زیر تصویر */
+    transition: transform 0.3s ease-in-out;
+    /* انیمیشن برای بزرگنمایی */
+    object-fit: cover;
+    /* برش یا تغییر اندازه تصویر برای پر کردن کادر بدون حفظ نسبت */
+}
+
+.container_main:hover .image {
+    transform: scale(1.05);
+    /* بزرگنمایی تصویر در حالت شناور */
+}
+
+/* ... بقیه استایل‌ها ... */
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    /* مرکز افقی محتوا (که .text است) */
+    align-items: center;
+    /* مرکز عمودی محتوا (که .text است) */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.container_main {
+    position: relative;
+    /* برای موقعیت‌دهی مطلق overlay */
+    border: 1px solid transparent;
+    /* بوردر پیش‌فرض شفاف */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    /* برای انیمیشن هاله */
+}
+
+.container_main:hover {
+    border-color: #007bff;
+    /* مثال: تغییر رنگ بوردر به عنوان هاله */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    /* مثال: افزودن باکس شادو به عنوان هاله */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    /* مرکز افقی متن */
+    align-items: center;
+    /* مرکز عمودی متن */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.container_main:hover .overlay {
+    opacity: 1;
+}
+
+.overlay .text a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: #f76d37;
+    /* تغییر رنگ متن به مشکی برای پس‌زمینه سفید */
+    text-decoration: none;
+    background-color: white;
+    /* پس‌زمینه سفید به طور پیش‌فرض */
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 25px;
+    opacity: 0.8;
+    /* کمی شفافیت برای حالت عادی */
+    transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease, border-radius 0.3s ease, color 0.3s ease;
+    /* اضافه کردن transition برای color */
+}
+
+.overlay .text a:hover {
+    background-color: gold;
+    /* پس‌زمینه طلایی هنگام هاور */
+    color: #f76d37;
+    /* حفظ یا تغییر رنگ متن هنگام هاور (در صورت نیاز) */
+    opacity: 1;
+    /* افزایش شفافیت هنگام هاور */
+    transform: scale(1.05);
+    border-radius: 15px;
+}
+
+/* حذف استایل‌های مربوط به آیکون i */
+.overlay .text a i {
+    display: none;
+    /* اگر به طور تصادفی هنوز در HTML وجود دارد، مخفی شود */
+}
+
+.overlay .text a:hover {
+    background-color: gold;
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.product-detail-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 30px;
+
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.product-details p {
+    text-align: right;
+    color: white;
+    font-size: 20px;
+}
+
+.product-image-gallery {
+    flex: 1 1 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.main-image {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.main-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    /* حفظ نسبت تصویر */
+    object-fit: cover;
+}
+
+.thumbnail-gallery {
+    display: flex;
+    gap: 5px;
+    overflow-x: auto;
+}
+
+.thumbnail-gallery img {
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    object-fit: cover;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnail-gallery img:hover {
+    opacity: 1;
+}
+
+.product-info {
+    text-align: center;
+    /* تنظیم متن نام محصول به وسط */
+    padding: 10px;
+    /* افزودن کمی فاصله */
+}
+
+.product-info h3 {
+    margin-top: 0;
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    /* حذف مارجین بالایی عنوان */
+    margin-bottom: 5px;
+    /* کمی فاصله از قیمت */
+}
+
+.product-info p {
+    margin-bottom: 0;
+    font-size: 16px;
+    font-weight: bold;
+    /* حذف مارجین پایین پاراگراف‌ها */
+    text-align: center;
+    color: white;
+
+    /* راست‌چین کردن متن قیمت و موجودی */
+}
+
+.product-info-wrapper {
+    flex: 1 1 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-title {
+    font-size: 50px;
+    margin-bottom: 10px;
+    color: gold;
+    font-weight: bold;
+    text-align: center;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #ffc107;
+    font-size: 22px;
+}
+
+.star-rating {
+    display: inline-flex;
+}
+
+.star-rating.small {
+    font-size: 0.8em;
+}
+
+.star-rating span {
+    margin-right: 2px;
+}
+
+.filled {
+    color: #ffc107;
+}
+
+.filled-half::before {
+    content: '\f089';
+    /* Font Awesome half-star-o */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    overflow: hidden;
+    width: 50%;
+    color: #ffc107;
+}
+
+.rating-count {
+    color: white;
+    margin-left: 5px;
+    font-size: 15px;
+}
+
+.product-weight {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: gold;
+}
+
+.product-price {
+    font-size: 20px;
+    color: gold;
+    font-weight: bold;
+    margin-bottom: 22px;
+    text-align: right;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.product-stock {
+    color: #28a745;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.product-description {
+    color: white;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+
+.product-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.add-to-cart-button {
+    background-color: rgb(173, 216, 230);
+    color: black;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    order: -1;
+    /* دکمه در سمت چپ */
+}
+
+.add-to-cart-button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.quantity-selector {
+    display: flex;
+    /* فعال کردن Flexbox */
+    flex-direction: row;
+    /* تغییر جهت قرارگیری عناصر به صورت افقی معکوس */
+    align-items: center;
+    /* تراز عمودی عناصر در وسط */
+    font-weight: bold;
+    gap: 10px;
+}
+
+.quantity-selector label {
+    font-size: 20px;
+    margin-left: 10px;
+    /* ایجاد فاصله بین label و input از سمت چپِ label */
+    margin-top: 8px;
+    color: white;
+}
+
+.quantity-selector input[type="number"] {
+    width: 60px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.submit-review-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    order: 0;
+    /* تنظیم order برای دکمه ثبت نظر (اختیاری، بستگی به محل قرارگیری آن دارد) */
+}
+
+.submit-review-button:hover {
+    background-color: #0056b3;
+}
+
+.view-details-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    order: 0;
+    /* تنظیم order برای دکمه جزئیات (اختیاری، بستگی به محل قرارگیری آن دارد) */
+}
+
+.view-details-button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.view-details-button i {
+    font-size: 1.2em;
+}
+
+.product-detail-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.product-info-wrapper {
+    flex: 1 1 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-details-tabs {
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* ... سایر استایل‌ها ... */
+/* استایل‌های موجود در product_detail.css */
+/* ... */
+
+/* استایل‌های بخش محصولات مرتبط (مشابه گالری اصلی) */
+/* ... سایر استایل‌های قبلی ... */
+
+.related-products-section {
+    padding: 60px 20px;
+    margin-top: 30px;
+    border-top: none;
+}
+
+.related-products-section h3 {
+    font-size: 40px;
+    color: gold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.related-products-carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+/* افزایش عرض محصولات مرتبط */
+.related-products-carousel .col-md-4 {
+    width: 50px 25px;
+    /* کمی بیشتر از 25% برای افزایش عرض */
+    flex-shrink: 0;
+}
+
+.related-products-carousel .container_main {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0;
+}
+
+.related-products-carousel .image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+}
+
+.related-products-carousel .container_main:hover .image {
+    transform: scale(1.05);
+}
+
+.related-products-carousel .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.related-products-carousel .container_main:hover .overlay {
+    opacity: 1;
+}
+
+.related-products-carousel .overlay .text a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: gold;
+    text-decoration: none;
+    background-color: black;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    opacity: 0.8;
+    transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease, border-radius 0.3s ease, color 0.3s ease;
+}
+
+.related-products-carousel .overlay .text a:hover {
+    background-color: white;
+    color: black;
+    opacity: 1;
+    transform: scale(1.05);
+    border-radius: 15px;
+}
+
+.related-products-carousel .product-info {
+    text-align: center;
+    padding: 10px;
+}
+
+.related-products-carousel .product-info h3 {
+    margin-top: 0;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: gold;
+    /* رنگ عنوان محصولات مرتبط */
+}
+
+.related-products-carousel .product-info .weight,
+.related-products-carousel .product-info .price {
+    font-size: 16px;
+    color: white;
+    /* تغییر رنگ متن وزن و قیمت */
+    margin-bottom: 3px;
+    text-align: center;
+}
+
+.carousel-controls {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.carousel-controls button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #555;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.carousel-controls button:hover {
+    color: #333;
+}
+
+
+.add-to-wishlist {
+    background-color: rgb(255, 128, 128);
+    color: black;
+    margin-top: 10px;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.add-to-wishlist:hover {
+    background-color: red;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* وقتی محصول در علاقه‌مندی‌ها هست (کلاس active) */
+.add-to-wishlist.active {
+    background-color: rgb(220, 0, 0);
+    /* رنگ قرمز پررنگ‌تر */
+    color: white;
+    /* رنگ متن سفید برای کنتراست بهتر */
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.product-meta {
+    color: gold;
+    font-size: 0.9em;
+    display: flex;
+    /* فعال کردن Flexbox برای فرزندان */
+    flex-wrap: wrap;
+    /* برای واکنش‌گرا بودن در صورت کمبود فضا */
+    gap: 20px;
+    /* فاصله بین آیتم‌ها */
+    align-items: center;
+    /* تراز عمودی آیتم‌ها */
+    justify-content: flex-end;
+}
+
+.product-meta a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.product-meta a:hover {
+    text-decoration: underline;
+}
+
+.product-meta p {
+    margin-bottom: 0;
+    /* حذف مارجین پایین پیش‌فرض پاراگراف */
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Tabs */
+.product-details-tabs {
+    margin-top: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.tab-buttons {
+    display: flex;
+    border-bottom: 1px solid #eee;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.tab-button.active {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+}
+
+.tab-button:hover {
+    color: #007bff;
+}
+
+.tab-contents {
+    padding: 20px;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+
+/********************************* login styie  *******************/
+
+/* static/css/auth.css */
+
+.auth-section {
+    font-family: 'Poppins', sans-serif;
+    direction: rtl;
+    background: rgba(255, 255, 255, 0.05);
+    /* پس‌زمینه ملایم برای بهتر دیده شدن باکس شیشه‌ای */
+    color: #333;
+    /* رنگ متن اصلی تیره برای خوانایی بهتر */
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* برای قرارگیری عمودی در وسط صفحه هم مناسب است */
+    min-height: 100vh;
+    /* برای پوشش کل ارتفاع صفحه */
+}
+
+.auth-box {
+    max-width: 450px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    /* سفید با شفافیت کم برای ظاهر شیشه‌ای */
+    border: 1px solid rgba(166, 124, 82, 0.5);
+    /* بوردر با شفافیت */
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+    text-align: right;
+    /* راست‌چین کردن محتویات باکس */
+    backdrop-filter: blur(10px);
+    /* افکت Blur برای پس‌زمینه زیر باکس */
+}
+
+.auth-box h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #4e342e;
+    font-weight: bold;
+    /* قهوه‌ای تیره برای عنوان */
+}
+
+.auth-form-group {
+    margin-bottom: 20px;
+}
+
+.auth-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: white;
+    /* خاکستری تیره برای برچسب‌ها */
+    font-weight: bold;
+    text-align: right;
+    /* راست‌چین کردن متن لیبل */
+    font-family: 'Poppins', sans-serif;
+}
+
+.auth-form-group input,
+.auth-form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    /* بوردر خاکستری روشن */
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    /* پس‌زمینه شفاف برای ورودی‌ها */
+    color: #333;
+    /* رنگ متن تیره برای ورودی‌ها */
+    font-size: 16px;
+    text-align: right;
+    /* راست‌چین کردن متن داخل فیلدها */
+}
+
+.auth-form-group input:focus,
+.auth-form-group textarea:focus {
+    outline: none;
+    background-color: rgba(97, 97, 97, 0.3);
+    /* پس‌زمینه تیره‌تر در حالت فوکوس با شفافیت */
+    color: #fff;
+    /* رنگ متن سفید در حالت فوکوس */
+}
+
+.btn-auth-submit {
+    width: 100%;
+    background-color: #a67c52;
+    /* قهوه‌ای متوسط برای دکمه */
+    color: #333;
+    font-weight: bold;
+    /* سفید برای متن دکمه */
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-auth-submit:hover {
+    background-color: #cfa76e;
+    /* قهوه‌ای روشن‌تر برای هاور دکمه */
+    color: #212121;
+    /* مشکی تیره برای متن هاور دکمه */
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+    color: white;
+    /* خاکستری تیره برای متن فوتر */
+}
+
+.auth-footer a {
+    color: white;
+    /* قهوه‌ای روشن برای لینک فوتر */
+    text-decoration: none;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+/************************************* register style ******************************/
+
+
+/* استایل اختصاصی برای فرم ثبت‌نام */
+/* ثبت‌نام کافینو */
+.register-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* تغییر به center برای قرارگیری عمودی در وسط هم خوب است */
+    padding: 3rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    /* یک پس‌زمینه ملایم برای بهتر دیده شدن باکس شیشه‌ای */
+    min-height: 100vh;
+    font-family: sans-serif;
+    direction: rtl;
+    /* راست‌چین کردن کلیت */
+    font-family: 'Poppins', sans-serif;
+}
+
+.register-box {
+    background-color: rgba(255, 255, 255, 0.2);
+    /* سفید با شفافیت کم برای ظاهر شیشه‌ای */
+    border: 1px solid rgba(193, 154, 107, 0.5);
+    /* بوردر با شفافیت */
+    border-radius: 15px;
+    padding: 30px 40px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 480px;
+    width: 100%;
+    direction: rtl;
+    /* راست‌چین کردن فرم */
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    backdrop-filter: blur(10px);
+    /* افکت Blur برای پس‌زمینه زیر باکس */
+}
+
+.register-box h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #4e342e;
+    /* قهوه‌ای تیره برای عنوان */
+}
+
+.register-form-group {
+    margin-bottom: 20px;
+    text-align: right;
+    /* راست‌چین کردن برچسب‌ها و ورودی‌ها */
+    font-family: 'Poppins', sans-serif;
+}
+
+.register-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffffff;
+    font-weight: bold;
+    /* خاکستری تیره برای برچسب‌ها */
+}
+
+.register-form-group input,
+.register-form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    background-color: rgba(255, 255, 255, 0.05);
+    /* پس‌زمینه شفاف برای ورودی‌ها */
+    color: #333;
+    /* رنگ متن تیره برای ورودی‌ها */
+}
+
+.btn-register-submit {
+    background-color: #c19a6b;
+    /* قهوه‌ای روشن‌تر برای دکمه */
+    color: #333;
+    /* سفید برای متن دکمه */
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    transition: 0.3s ease;
+    margin-top: 10px;
+    text-align: center;
+    /* برای وسط‌چین کردن متن دکمه */
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.btn-register-submit:hover {
+    background-color: #d4af37;
+    /* قهوه‌ای طلایی برای هاور دکمه */
+}
+
+.register-footer {
+    text-align: center;
+    /* وسط‌چین کردن لینک ورود */
+    margin-top: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.register-footer a {
+    color: white;
+    /* قهوه‌ای متوسط برای لینک ورود */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 22px;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+
+
+
+/*************************************** dashbord style ****************************/
+.dashboard {
+    direction: rtl;
+    /* راست‌چین کردن کل داشبورد */
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: #2c3e50;
+    /* یک رنگ خاکستری تیره برای خوانایی بیشتر */
+    background: transparent;
+}
+
+.dashboard .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.dashboard .card {
+    background: rgba(255, 255, 255, 0.8);
+    /* پس‌زمینه نیمه‌شفاف سفید برای جدا کردن کارت‌ها */
+    border: 1px solid #d4af37;
+    border-right: 6px solid #6b4c3b;
+    border-radius: 1rem;
+    padding: 1.5rem 1.2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 16px rgba(107, 76, 59, 0.2);
+    transition: all 0.3s ease;
+}
+
+.dashboard .user-info {
+    margin-top: 8rem;
+    text-align: center;
+
+
+    /* مقدار دلخواه برای فاصله از بالا */
+}
+
+.dashboard .user-info h2 {
+
+    text-align: center;
+}
+
+
+.dashboard .user-info p {
+    text-align: right;
+}
+
+.dashboard .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 24px rgba(212, 175, 55, 0.4);
+}
+
+.dashboard h2,
+.dashboard h4 {
+    color: #34495e;
+    /* رنگ تیره‌تر برای عنوان‌ها */
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    text-align: right;
+
+}
+
+.dashboard ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dashboard ul li {
+    background: rgba(241, 196, 15, 0.1);
+    /* پس‌زمینه ملایم برای آیتم‌های لیست */
+    padding: 0.8rem 1rem;
+    border-radius: 0.5rem;
+    border-right: 3px solid #d4af37;
+    margin-bottom: 0.5rem;
+    transition: background 0.3s ease;
+    color: #333;
+    /* رنگ متن برای آیتم‌های لیست */
+    text-align: center;
+
+}
+
+.dashboard ul li:hover {
+    background: rgba(244, 232, 205, 0.5);
+}
+
+.dashboard .action-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background: linear-gradient(135deg, #6b4c3b, #d4af37);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    font-weight: bold;
+}
+
+.dashboard .action-btn:hover {
+    background: linear-gradient(135deg, #5a3d2b, #e0c85a);
+}
+
+.dashboard .logout {
+    background: linear-gradient(135deg, #c0392b, #d4af37);
+    /* رنگ قرمز مایل به قهوه‌ای برای دکمه خروج */
+}
+
+.dashboard .text-center {
+    text-align: center;
+    /* برای وسط‌چین کردن دکمه خروج */
+}
+
+
+
+
+
+/*************************************** editprofile style ****************************/
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding: 3rem 1rem;
+    background: transparent;
+}
+
+.profile-card {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(61, 42, 23, 0.15);
+    /* قهوه‌ای شفاف */
+    border: 1px solid #d4af37;
+    border-radius: 1rem;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.profile-title {
+    text-align: center;
+    color: #d4af37;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+    text-align: right;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: #fff8e1;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 0.5rem;
+    border: 1px solid #d4af37;
+    background-color: transparent;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: white;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: black;
+}
+
+.error {
+    color: #ff6b6b;
+    font-size: 0.875rem;
+    margin-top: 0.3rem;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: #d4af37;
+    color: #3d2a17;
+    font-weight: bold;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #e6c456;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+a,
+span,
+label,
+button,
+input,
+textarea,
+select {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+/********************************* cart styie  ******************/
+
+
+/* Reset و استایل‌های پایه */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    padding-top: 80px;
+    /* هدر 80px + فاصله 40px */
+
+    /* فضای برای هدر ثابت */
+}
+
+/* استایل هدر ثابت */
+/* Reset کامل برای هدر */
+header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    height: 80px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+}
+
+/* تنظیمات والدها */
+body,
+html {
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+}
+
+/* محتوای اصلی */
+main {
+    margin-top: 80px;
+    /* فضای هدر */
+}
+
+/* کانتینر اصلی */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* استایل سبد خرید */
+.stylish-cart {
+    width: 1200px;
+    /* مقدار دلخواه خود را وارد کنید */
+    max-width: 95%;
+    /* برای جلوگیری از بیرون زدن از صفحه در موبایل */
+    background-color: #fff;
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: 20px;
+    /* مقدار فاصله از هدر */
+    z-index: 10;
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+}
+
+.stylish-cart:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.animated-title {
+    font-size: 2.5rem;
+    color: #e44d26;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.animated-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, #e44d26, #f16529);
+}
+
+/* استایل‌های آیتم‌های سبد خرید */
+.cart-items-wrapper {
+    margin-bottom: 30px;
+}
+
+.cart-items {
+    list-style: none;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 25px 0;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.item-image {
+    width: 120px;
+    height: 120px;
+    margin-right: 25px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.item-image:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.item-details {
+    flex-grow: 1;
+}
+
+.item-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.item-price {
+    color: #777;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.quantity-input {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-input label {
+    margin-right: 10px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.quantity-field {
+    width: 60px;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.quantity-field::-webkit-outer-spin-button,
+.quantity-field::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.update-quantity-button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.update-quantity-button:hover {
+    background-color: #4cae4c;
+    transform: translateY(-2px);
+}
+
+.item-actions {
+    margin-left: 20px;
+}
+
+.remove-item-button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.remove-item-button:hover {
+    background-color: #c9302c;
+    transform: translateY(-2px);
+}
+
+.item-total {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #27ae60;
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+/* استایل خلاصه سبد خرید */
+.stylish-summary {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 40px;
+    border-left: 4px solid #e44d26;
+
+}
+
+.summary-title {
+    font-size: 1.8rem;
+
+    color: #e44d26;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px dashed #ddd;
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+}
+
+.summary-item .label {
+    color: #555;
+    font-weight: 500;
+}
+
+.grand-total {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px solid #ddd;
+}
+
+.highlight-text {
+    color: #e44d26;
+    font-weight: bold;
+}
+
+.checkout-button-wrapper {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.checkout-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e44d26;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.checkout-button:hover {
+    background-color: #d1401a;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(228, 77, 38, 0.3);
+}
+
+/* استایل سبد خرید خالی */
+.empty-cart-message {
+    text-align: center;
+    padding: 40px 0;
+    font-size: 1.3rem;
+    color: #777;
+}
+
+.back-to-shop {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.back-to-shop .interactive-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #3498db;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    gap: 8px;
+}
+
+.back-to-shop .interactive-button:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* انیمیشن‌ها */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* رسپانسیو */
+@media (max-width: 992px) {
+    .stylish-cart {
+        padding: 30px;
+    }
+
+    .cart-item {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .item-image {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .stylish-cart {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .animated-title {
+        font-size: 2rem;
+    }
+
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .item-details {
+        width: 100%;
+    }
+
+    .item-total {
+        margin-left: 0;
+        margin-top: 15px;
+    }
+
+    .stylish-summary {
+        padding: 20px;
+    }
+}
+
+
+/***************************************** pyment style ****************************/
+.payment-success-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+
+.success-message {
+    margin-bottom: 2rem;
+}
+
+.success-icon {
+    color: #4CAF50;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.order-details {
+    text-align: right;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.detail-label {
+    font-weight: bold;
+    color: #555;
+}
+
+.detail-value {
+    color: #333;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: #4CAF50;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #388E3C;
+}
+
+.btn-secondary {
+    background: #f5f5f5;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.btn-secondary:hover {
+    background: #e9e9e9;
+}
+
+
+
+
+/* استایل صفحه پرداخت ناموفق */
+.payment-failed-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.error-header {
+    margin-bottom: 1.5rem;
+}
+
+.error-icon {
+    color: #f44336;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.error-details {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #fff5f5;
+    border-radius: 8px;
+    text-align: right;
+}
+
+.error-message {
+    color: #f44336;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.order-info {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #ffcdd2;
+}
+
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-retry {
+    background: #ff9800;
+    color: white;
+}
+
+.btn-retry:hover {
+    background: #f57c00;
+}
+
+.btn-cart {
+    background: #2196F3;
+    color: white;
+}
+
+.btn-cart:hover {
+    background: #1976D2;
+}
+
+.btn-support {
+    background: #9c27b0;
+    color: white;
+}
+
+.btn-support:hover {
+    background: #7b1fa2;
+}
+
+
+
+
+
+/* استایل‌های محصولات */
+.product-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.price {
+    font-weight: bold;
+    color: #2a6496;
+    font-size: 1.1rem;
+
+}
+
+/* استایل‌های فاکتور */
+.badge {
+    font-size: 0.9rem;
+    padding: 0.35em 0.65em;
+}
+
+.table {
+    font-size: 0.95rem;
+}
+
+.table img {
+    border-radius: 5px;
+}
+
+
+/**************************************faverit style***********************************/
+.favorite-btn {
+    transition: all 0.3s;
+}
+
+.favorite-btn:hover {
+    transform: scale(1.1);
+}
+
+.favorite-btn .fas {
+    color: #dc3545;
+}
+
+.card {
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+/*********************** slider style *******************************/
+
+/* استایل اصلی اسلایدر بدون باکس */
+.banner_section {
+    width: 100%;
+    max-width: 2000px;
+    margin: 10px auto;
+    position: relative;
+    height: 450px;
+    overflow: hidden;
+}
+
+/* کانتینر اسلایدر */
+#main_slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* استایل تصاویر اسلاید */
+.carousel-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    /* حذف انحنا */
+}
+
+.carousel-item {
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.8s ease;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.indicators-container {
+    width: 100%;
+    position: absolute;
+    bottom: -50px;
+    /* فاصله از پایین اسلایدر */
+    left: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 20;
+    /* اضافه کردن این خط برای دیباگ */
+}
+
+/* استایل دایره‌ها */
+.slider-indicators {
+    display: flex;
+    gap: 15px;
+    padding: 12px 20px;
+    border-radius: 50px;
+}
+
+.slider-indicators button {
+    width: 16px;
+    height: 16px;
+    border: 2px solid white;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.slider-indicators button:hover {
+    transform: scale(1.2);
+    border-color: gold;
+}
+
+.slider-indicators button.active {
+    background-color: gold;
+    border-color: #ffffff;
+    transform: scale(1.2);
+}
+
+/* انیمیشن اسلایدها */
+.carousel-item.active {
+    animation: slideFadeIn 0.8s ease-out;
+}
+
+@keyframes slideFadeIn {
+    from {
+        opacity: 0.7;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* تنظیمات ریسپانسیو */
+@media (max-width: 1600px) {
+    .banner_section {
+        max-width: 1600px;
+        height: 400px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .banner_section {
+        height: 350px;
+    }
+
+    .slider-indicators {
+        gap: 12px;
+        padding: 10px 15px;
+    }
+
+    .slider-indicators button {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner_section {
+        height: 300px;
+    }
+
+    .indicators-container {
+        margin-top: 15px;
+    }
+
+    .slider-indicators {
+        gap: 10px;
+        padding: 8px 12px;
+    }
+
+    .slider-indicators button {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .banner_section {
+        height: 250px;
+    }
+}
+
+
+
+
+
+.author_date_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    direction: rtl;
+    /* برای راست‌چین کردن در زبان فارسی */
+}
+
+.testimonial_date {
+    color: #777;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.testimonial_date i {
+    color: #d4af37;
+    font-size: 14px;
+}
+
+.author_name {
+    color: #d4af37;
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.7);
+    transition: text-shadow 0.5s ease;
+    font-size: 22px;
+}
+
+.author_name:hover {
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.9);
+}
+
+.testimonial_text {
+    text-align: center;
+    margin: 25px 0;
+}
+
+
+
+/* استایل‌های جدید */
+.message-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    transition: background 0.3s;
+}
+
+.message-item:hover {
+    background: #f9f9f9;
+}
+
+.message-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.msg-subject {
+    font-weight: bold;
+    color: #333;
+    flex: 1;
+    min-width: 120px;
+}
+
+.msg-text {
+    color: #666;
+    flex: 2;
+    font-size: 0.9em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.msg-date {
+    color: #888;
+    font-size: 0.85em;
+    flex: 1;
+    text-align: left;
+    min-width: 140px;
+}
+
+.msg-status {
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: bold;
+    min-width: 80px;
+    text-align: center;
+}
+
+/* رنگ‌های وضعیت پیام */
+.msg-status.pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.msg-status.answered {
+    background: #d4edda;
+    color: #155724;
+}
+
+.msg-status.closed {
+    background: #f8f9fa;
+    color: #6c757d;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.copy-container {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.copy-message {
+  display: none;
+  background-color: #4CAF50;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  animation: fadeInOut 1.5s ease;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+
+
+
+
+
+
+
+
+.order-id {
+    margin-left: 20px; /* Increased spacing */
+}
+
+.order-date {
+    margin-left: 20px; /* Increased spacing */
+}
+
+.order-status {
+    margin-left: 20px; /* Increased spacing */
+}

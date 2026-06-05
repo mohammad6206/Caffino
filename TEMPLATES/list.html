@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% load jalali_tags %}
+
+
+{% block content %}
+<div class="container py-5" dir="rtl">
+    <h2 class="mb-4 text-center">لیست علاقه‌مندی‌های شما</h2>
+
+    {% if favorites %}
+    <div class="row">
+        {% for fav in favorites %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <img src="{{ fav.product.image.url }}" class="card-img-top" alt="{{ fav.product.name }}"
+                    style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ fav.product.name }}</h5>
+                    <p class="card-text price">{{ fav.product.price|floatformat:"0" }} تومان</p>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <a href="{% url 'Caffino:product_detail' fav.product.id %}" class="btn btn-sm btn-primary">
+                        مشاهده محصول
+                    </a>
+                    <a href="{% url 'Caffino:remove_from_favorites' fav.product.id %}" class="btn btn-sm btn-danger">
+                        حذف از علاقه‌مندی‌ها
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="alert alert-info">
+        هنوز محصولی به لیست علاقه‌مندی‌های خود اضافه نکرده‌اید.
+    </div>
+    {% endif %}
+    <div class="mt-4">
+        <a href="{% url 'Caffino:dashboard' %}" class="btn btn-secondary">
+            بازگشت به داشبورد
+        </a>
+    </div>
+</div>
+{% endblock %}

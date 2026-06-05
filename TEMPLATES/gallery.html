@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+{% load jalali_tags %}
+
+{% block content %}
+
+<div class="gallery_section layout_padding">
+   <div class="container">
+
+      <!-- ✅ نوار فیلتر و جستجو (اضافه شده بدون تغییر در کد اصلی شما) -->
+      <div class="row mb-4 align-items-center justify-content-between" dir="rtl">
+         <div class="col-md-4 text-end">
+            <input type="text" id="searchBox" class="form-control" placeholder="جستجوی محصول...">
+         </div>
+         <div class="w-full md:w-1/4">
+            <label for="categoryFilter" class="block mb-2 text-sm font-medium text-gray-700">
+            </label>
+            <select id="categoryFilter"
+               class="block w-full px-4 py-2 text-gray-800 bg-white border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300">
+               <option value="">همه دسته‌ بندی‌ها</option>
+               {% for category in categories %}
+               <option value="{{ category.id }}">{{ category.name }}</option>
+               {% endfor %}
+            </select>
+         </div>
+      </div>
+
+      <!-- ✅ باقی‌مانده کد شما بدون تغییر -->
+      <div class="row">
+         <div class="col-sm-12">
+            <h1 class="gallery_taital">محصولات</h1>
+         </div>
+      </div>
+      <div class="">
+         <div class="gallery_section_2">
+            <div class="row" id="products-container">
+               {% for product in products %}
+               <div class="col-md-4">
+                  <div class="container_main product-card">
+                     <img src="{{ product.image.url }}" alt="{{ product.name }}" class="image">
+                     <div class="overlay">
+                        <div class="text">
+                           <a href="{% url 'Caffino:product_detail' product.id %}">
+                              جزئیات محصول
+                           </a>
+                        </div>
+                     </div>
+                     <div class="product-info">
+                        <h3>{{ product.name }}</h3>
+                        {% if product.weight %}
+                        <p class="weight">وزن: {{ product.weight }} گرم</p>
+                        {% endif %}
+                        <p class="price">قیمت: {{ product.price }}</p>
+                     </div>
+                  </div>
+               </div>
+               {% endfor %}
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- ✅ اسکریپت جستجو و فیلتر زنده (اضافه شده در پایین) -->
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+      const searchBox = document.getElementById("searchBox");
+      const categoryFilter = document.getElementById("categoryFilter");
+
+      function fetchFilteredProducts() {
+         const search = searchBox.value;
+         const category = categoryFilter.value;
+
+         fetch(`/products/filter/?search=${search}&category=${category}`)
+            .then(response => response.text())
+            .then(html => {
+               document.getElementById("products-container").innerHTML = html;
+            });
+      }
+
+      searchBox.addEventListener("input", fetchFilteredProducts);
+      categoryFilter.addEventListener("change", fetchFilteredProducts);
+   });
+</script>
+
+{% endblock %}

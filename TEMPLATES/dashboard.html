@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+{% load static %}
+{% load jalali_tags %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<div class="dashboard" dir="rtl">
+    <div class="container">
+        <div class="card user-profile">
+            <div class="profile-header text-center">
+                <h2>سلام {{ user.full_name }} 👋</h2>
+            </div>
+            <div class="profile-details text-right">
+                <p><i class="fas fa-phone"></i> {{ user.phone_number|default:"ثبت نشده" }}</p>
+                <p><i class="fas fa-envelope"></i> {{ user.email }}</p>
+                <p><i class="fas fa-map-marker-alt"></i> {{ user.address|default:"ثبت نشده" }}</p>
+            </div>
+            <div class="d-flex justify-content-center mt-4">
+                <div>
+                    <a href="{% url 'Caffino:edit_profile' %}" class="btn btn-secondary">
+                        ویرایش پروفایل
+                    </a>
+                </div>
+                <div>
+                    <a href="{% url 'Caffino:set_new_password' request.user.phone_number %}" class="btn btn-secondary">
+                        تغییر رمز عبور
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card main-card" dir="ltr">
+            <h3 class="text-center"><i class="fas fa-file-invoice-dollar"></i> فاکتورهای فروش اخیر</h3>
+            {% if orders %}
+            <div class="order-list text-right">
+                {% for order in orders %}
+                <div class="order-item">
+                    <span class="order-id">#{{ order.order_code }}</span>
+                    <span class="order-date">{{ order.created_at|to_jalali:"%Y/%m/%d - %H:%M" }}</span>
+                    <span class="order-status {{ order.status }}">
+                        {{ order.get_status_display }}
+                    </span>
+                    <a href="{% url 'Caffino:order_detail' order.order_code %}" class="order-link">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="mt-4 text-center">
+                <a href="{% url 'Caffino:order_history' %}" class="btn btn-secondary">
+                    مشاهده همه فاکتورها
+                </a>
+            </div>
+            {% else %}
+            <p class="empty-message text-right">هنوز فاکتور فروشی ثبت نشده است.</p>
+            {% endif %}
+        </div>
+
+        <div class="card main-card" dir="ltr">
+            <h3 class="text-center"><i class="fas fa-box-open"></i> محصولات خریداری شده اخیر</h3>
+            {% if purchased_items %}
+            <div class="row">
+                {% for item in purchased_items %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        {% if item.product.image %}
+                        <img src="{{ item.product.image.url }}" class="card-img-top" alt="{{ item.product.name }}"
+                            style="height: 200px; object-fit: cover;">
+                        {% endif %}
+                        <div class="card-body text-right">
+                            <h5 class="card-title">{{ item.product.name|truncatechars:25 }}</h5>
+                            <p class="card-text price">{{ item.product.price|floatformat:"0" }} تومان</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="{% url 'Caffino:product_detail' item.product.id %}"
+                                class="btn btn-sm btn-primary w-100">
+                                مشاهده محصول
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="mt-4 text-center">
+                <a href="{% url 'Caffino:purchased_products' %}" class="btn btn-secondary">
+                    مشاهده همه خرید ها
+                </a>
+
+            </div>
+            {% else %}
+            <p class="empty-message text-right">هنوز محصولی خریداری نکرده‌اید.</p>
+            {% endif %}
+        </div>
+
+        <div class="card main-card" dir="ltr">
+            <h3 class="text-center"><i class="fas fa-heart"></i> علاقه‌مندی‌های اخیر</h3>
+            {% if favorites %}
+            <div class="row">
+                {% for fav in favorites %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="{{ fav.product.image.url }}" class="card-img-top" alt="{{ fav.product.name }}"
+                            style="height: 200px; object-fit: cover;">
+                        <div class="card-body text-right">
+                            <h5 class="card-title">{{ fav.product.name }}</h5>
+                            <p class="card-text price">{{ fav.product.price|floatformat:"0" }} تومان</p>
+                        </div>
+                        <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">
+                            <a href="{% url 'Caffino:product_detail' fav.product.id %}"
+                                class="btn btn-sm btn-primary py-1 px-2">
+                                مشاهده محصول
+                            </a>
+                            <a href="{% url 'Caffino:remove_from_favorites' fav.product.id %}"
+                                class="btn btn-sm btn-danger py-1 px-2">
+                                حذف از علاقه‌مندی‌ها
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="mt-4 text-center">
+                <a href="{% url 'Caffino:favorites_list' %}" class="btn btn-secondary">
+                    مدیریت علاقه مندی ها
+                </a>
+            </div>
+            {% else %}
+            <p class="empty-message text-right">محصولی به علاقه‌مندی‌ها اضافه نکرده‌اید</p>
+            {% endif %}
+        </div>
+
+        <div class="card main-card" dir="ltr">
+            <h3 class="text-center"><i class="fas fa-comments"></i> پیام‌های شما</h3>
+            {% if support_messages %}
+            <ul class="message-list text-right" style="direction: rtl; text-align: right;">
+                {% for msg in support_messages %}
+                <li class="message-item">
+                    <div class="message-row">
+                        <span class="msg-subject">{{ msg.subject|truncatechars:25 }}</span>
+                        <span class="msg-text">{{ msg.message|truncatechars:40 }}</span>
+                        <span class="msg-date">{{ msg.created_at|to_jalali:"%H:%M - %Y/%m/%d"}}</span>
+                        <span class="msg-status {{ msg.status }}">{{ msg.get_status_display }}</span>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="empty-message text-right">پیامی ندارید</p>
+            {% endif %}
+        </div>
+
+        <div class="card main-card" dir="ltr">
+            <h3 class="text-center"><i class="fas fa-tag"></i> کوپن‌های شما</h3>
+            {% if coupons %}
+            <ul class="coupon-list text-right" style="direction: rtl; text-align: right;">
+                {% for coupon in coupons|slice:":2" %}
+                <li>
+                    <span class="coupon-code">{{ coupon.code }}</span>
+                    <span class="coupon-discount">{{ coupon.discount_percent }}% تخفیف</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="mt-4 text-center">
+                <a href="{% url 'Caffino:coupons' %}" class="btn btn-secondary">
+                    مشاهده همه کوپن ها
+                </a>
+            </div>
+            {% else %}
+            <p class="empty-message text-right">کوپن فعال ندارید</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="quick-actions justify-content-center">
+        <a href="{% url 'Caffino:products' %}" class="action-btn">
+            <i class="fas fa-shopping-cart"></i> ادامه خرید
+        </a>
+        <a href="{% url 'Caffino:logout' %}" class="action-btn logout">
+            <i class="fas fa-sign-out-alt"></i> خروج از حساب
+        </a>
+    </div>
+</div>
+{% endblock %}

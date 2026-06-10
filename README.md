@@ -133,7 +133,7 @@ python manage.py runserver
 
 ![Services](screenshots/services.png)
 
-**Your Name**
+**Mohammad Mehdi Mokhtari**
 
 Full-stack Web Developer | Django & React
 

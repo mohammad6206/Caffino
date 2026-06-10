@@ -74,16 +74,12 @@ Create a `.env` file based .
 Example:
 
 ```env
-SECRET_KEY=
+SECRET_KEY = django-insecure-3r@xb^=4&vwdu10!x2te&$1qr1ar3tl(%5o$!5ua-ml7lp5nn(
 
-DB_NAME=
-DB_USER=
-DB_PASSWORD=
-DB_HOST=
-DB_PORT=
+DEBUG = True
 
-DEBUG=
-ALLOWED_HOSTS=
+ALLOWED_HOSTS = [*,127.0.0.1,127.0.0.1:8000]
+
 ```
 
 ---
